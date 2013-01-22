@@ -1,0 +1,12 @@
+\select@language {english}
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}Optional: Background Information}{2}
+\contentsline {section}{\numberline {3}Related Work}{2}
+\contentsline {section}{\numberline {4}Model description}{2}
+\contentsline {subsection}{\numberline {4.1}Word processing with \textlatin {\LaTeX }}{2}
+\contentsline {subsection}{\numberline {4.2}Tables in \textlatin {\LaTeX }}{3}
+\contentsline {subsection}{\numberline {4.3}Figures in \textlatin {\LaTeX }}{3}
+\contentsline {section}{\numberline {5}Model analysis}{3}
+\contentsline {section}{\numberline {6}Conclusion}{4}
+\contentsline {section}{Bibliography}{4}

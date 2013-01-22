@@ -1,0 +1,18 @@
+\select@language {english}
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {subsection}{\numberline {1.1}Self-replication and self-reproduction}{2}
+\contentsline {subsection}{\numberline {1.2}Self-replicating robots}{2}
+\contentsline {subsection}{\numberline {1.3}Categorization}{2}
+\contentsline {subsection}{\numberline {1.4}Attributes for self-replicating robots}{3}
+\contentsline {section}{\numberline {2}Directed replication via fabrication}{3}
+\contentsline {subsection}{\numberline {2.1}Rapid prototypers}{3}
+\contentsline {subsection}{\numberline {2.2}RepRap : an example}{4}
+\contentsline {section}{\numberline {3}Directed replication via module assembly}{5}
+\contentsline {subsection}{\numberline {3.1}Modular self-reconfigurable robots}{5}
+\contentsline {subsection}{\numberline {3.2}Molecubes : an example}{5}
+\contentsline {subsection}{\numberline {3.3}Evolved design}{6}
+\contentsline {section}{\numberline {4}Self-assembly of randomly agitated modules}{7}
+\contentsline {section}{\numberline {5}Discussion}{7}
+\contentsline {subsection}{\numberline {5.1}a}{7}
+\contentsline {chapter}{Bibliography}{8}

@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.12pt}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Motivation}{5}{0}{2}
+\beamer@sectionintoc {3}{Software Structure}{8}{0}{3}
+\beamer@sectionintoc {4}{Community}{15}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{17}{0}{5}

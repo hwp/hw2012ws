@@ -1,0 +1,48 @@
+Title of the paper: Memorizing and Learning Fear
+Author of the paper: Patrick Schmolke
+
+A. Summary of the paper:
+This paper is a review of the modeling of fear. It states the importance of this topic and gives an introduction to the biological basis of the fear in animals. The main part of paper is missing.
+
+
+B. Strengths of the paper:
+Good use of language. New citations are introduced. Background information are provided in a comprehensive way.
+
+
+C. Weaknesses of the paper:
+As the paper is not finished, it's not easy to evaluate. Some suggestions are in the "detailed comments to the author".
+
+
+D. Short evaluations
+
+D1. Coverage of the topic:
+Fair. (Lack of information)
+
+D2. Depth of the topic:
+Fair. (Lack of information)
+
+D3. Structure:
+Good.
+
+D4. Quality of presentation / comprehensibility:
+Easy to understand. Additional explanation to neuroscience terms, which are quite unfamiliar to cs majors.
+
+D5. Linguistic quality:
+Good use of language with a few misspelled words.
+
+D6. Critical elaboration of the topic:
+Lack of information.
+
+
+E. detailed comments to the author:
+Some misspelled words in Section 1 :
+-- Since the problem solving capabilities of the human brain is unmatched by any artificial system **whith** affections influence it in many ways, ... | should be "with"
+-- This paper tries to provide an **Overview** over characteristics of ... | should be "overview"
+
+For the last two sentences in Section 2.1, it's quite hard to catch the idea.
+-- **However**, the actual response is mostly given by evolution. Most animals will flee if a threat is getting closer, though if there is no other way to escape, some species change their behaviour and will attack the threat [2].
+I don't understand why there is a "However", as the statement does not contradict the previous one, which is "Fear can trigger different behaviours that are inherited by genetical predecessors and depends strongly on the way a species have developed".
+It seems that grammar of the last sentence is not correct (tow predicates) and the sentence is not a explanation for the previous one. The reader will probably expect you to explain or give more detail about "the actual response is mostly given by evolution".
+
+And, maybe quite important, I suggest you add a word such as overview, review or survey to the title, as the paper is a review of other's work.
+ 

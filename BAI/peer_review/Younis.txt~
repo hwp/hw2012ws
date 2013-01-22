@@ -1,0 +1,45 @@
+Title of the paper: Path Planning using Neural Networks
+Author of the paper: Sohaib Younis
+
+A. Summary of the paper:
+This paper reviewed two advanced methods for path planning. The author talks about the importance of study on this topic, the related approaches. Then the two methods are introduced. 
+
+
+B. Strengths of the paper:
+Introduction and related work sections are written clearly. Logic of the structure in this paper is reasonable.
+
+
+C. Weaknesses of the paper:
+Should be more comprehensive when introducing the two methods. More specific information will be better for reader to catch the idea. 
+Comparison between the methods is missing. 
+
+
+D. Short evaluations
+
+D1. Coverage of the topic:
+Covered most related background information.
+
+D2. Depth of the topic:
+Details of algorithms are given.
+
+D3. Structure:
+Clear. First states the problem of previous approaches, then concludes what improvements those new methods achieves.
+
+D4. Quality of presentation / comprehensibility:
+Most part are comprehensive except the introduction of two algorithms. More details would be better.
+
+D5. Linguistic quality:
+Good.
+
+D6. Critical elaboration of the topic:
+I expect more critical elaboration in the conclusion.
+
+
+E. detailed comments to the author:
+In section 2, second paragraph of page 3, "In cell decomposition approach, the **free** consists of a collection of cells and a particular sequence represent solution path.", I don't quite understand what does the word "free" mean. Is it misspelled?
+
+In section 3.1 where there is a figure, I suggest you use float structure to contain the figure.
+use \begin{figure}[placement specifier] ... figure contents ... \end{figure} % please refer to the sample tex file.
+
+For the bibliography, there are some items which are not complete (year of publication is missing).
+

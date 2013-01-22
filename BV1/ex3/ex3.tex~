@@ -1,0 +1,147 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\usepackage{fullpage}
+
+\title{Image Processing 1 - Exercise 3 - WiSe 2012/13}
+\author{Weipeng He}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+\begin{proof}
+
+Since transformation from scene coordinates to camera coordinates is linear, it is obvious that straight line in scene is still a straight line in camera coordinates after mapping. 
+Thus, let the scene coordinates and camera coordinates be identical. 
+
+We need to prove that the perspective projection described below maps a straight line to a straight line in the image
+\[ \begin{pmatrix} x_p \\ y_p \\ z_p \end{pmatrix} = \begin{pmatrix} \frac{xf}{z} \\ \frac{yf}{z}  \\ f \end{pmatrix}  \]
+
+Let the straight line in scene be
+\[ \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} t + \begin{pmatrix} \beta_1 \\ \beta_2 \\ \beta_3 \end{pmatrix} \]
+
+Thus, the projected line in image should be
+\[ \begin{pmatrix} x_p \\ y_p \\ z_p \end{pmatrix} 
+  = \begin{pmatrix} \frac{\alpha_1 t + \beta_1}{\alpha_3 t + \beta_3} \\ \frac{\alpha_2 t + \beta_2}{\alpha_3 t + \beta_3} \\ 1 \end{pmatrix} f \]
+If $\alpha_3 = 0$,
+\begin{equation}
+  \label{eq:a3eq0}
+  \begin{pmatrix} x_p \\ y_p \\ z_p \end{pmatrix} 
+  = \begin{pmatrix} \frac{\alpha_1}{\beta_3} \\ \frac{\alpha_2}{\beta_3} \\ 0 \end{pmatrix} ft 
+  + \begin{pmatrix} \frac{\beta_1}{\beta_3} \\ \frac{\beta_2}{\beta_3} \\ 1 \end{pmatrix} f 
+\end{equation}
+Otherwise,
+ \begin{equation}
+  \label{eq:a3neq0}
+  \begin{pmatrix} x_p \\ y_p \\ z_p \end{pmatrix} 
+  = \begin{pmatrix} \frac{\frac{\alpha_1}{\alpha_3}(t + \frac{\beta_3}{\alpha_3}) + \frac{\beta_1}{\alpha_3} - \frac{\alpha_1\beta_3}{\alpha_3^2}}{t + \frac{\beta_3}{\alpha_3}} \\
+  \frac{\frac{\alpha_2}{\alpha_3}(t + \frac{\beta_3}{\alpha_3}) + \frac{\beta_2}{\alpha_3} - \frac{\alpha_2\beta_3}{\alpha_3^2}}{t + \frac{\beta_3}{\alpha_3}} \\
+   1 \end{pmatrix} f
+   = \begin{pmatrix} \alpha_3\beta_1- \alpha_1\beta_3 \\
+   \alpha_3\beta_2- \alpha_2\beta_3 \\
+   0 \end{pmatrix} \frac{f}{\alpha_3^2 t + \beta_3\alpha_3}
+   + \begin{pmatrix} \frac{\alpha_1}{\alpha_3} \\ \frac{\alpha_2}{\alpha_3} \\ 1 \end{pmatrix} f 
+\end{equation}
+
+In both cases (equation \ref{eq:a3eq0} and equation \ref{eq:a3neq0}), the projected line is a straight line. 
+
+\end{proof}
+
+\section{}
+\begin{proof}
+Let the two parallel straight line be
+\[ \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} t + \begin{pmatrix} \beta_1 \\ \beta_2 \\ \beta_3 \end{pmatrix} 
+, \begin{pmatrix} x' \\ y' \\ z' \end{pmatrix} = \begin{pmatrix} \alpha_1 \\ \alpha_2 \\ \alpha_3 \end{pmatrix} t' + \begin{pmatrix} \beta'_1 \\ \beta'_2 \\ \beta'_3 \end{pmatrix} 
+\]
+
+If $\alpha_3 \neq 0$, according to equation \ref{eq:a3neq0}, the projected lines are
+\[
+  \begin{pmatrix} x_p \\ y_p \\ z_p \end{pmatrix} 
+   = \begin{pmatrix} \alpha_3\beta_1- \alpha_1\beta_3 \\
+   \alpha_3\beta_2- \alpha_2\beta_3 \\
+   0 \end{pmatrix} \frac{f}{\alpha_3^2 t + \beta_3\alpha_3}
+   + \begin{pmatrix} \frac{\alpha_1}{\alpha_3} \\ \frac{\alpha_2}{\alpha_3} \\ 1 \end{pmatrix} f 
+\]
+and
+\[
+  \begin{pmatrix} x'_p \\ y'_p \\ z'_p \end{pmatrix} 
+   = \begin{pmatrix} \alpha_3\beta'_1- \alpha_1\beta'_3 \\
+   \alpha_3\beta'_2- \alpha_2\beta'_3 \\
+   0 \end{pmatrix} \frac{f}{\alpha_3^2 t' + \beta'_3\alpha_3}
+   + \begin{pmatrix} \frac{\alpha_1}{\alpha_3} \\ \frac{\alpha_2}{\alpha_3} \\ 1 \end{pmatrix} f 
+\]
+This indicates that they intersect at the bias, that is
+\[ \begin{pmatrix} \frac{\alpha_1}{\alpha_3} \\ \frac{\alpha_2}{\alpha_3} \\ 1 \end{pmatrix} f \]
+
+However, if $\alpha_3 = 0$, the projected lines are
+\[
+  \begin{pmatrix} x_p \\ y_p \\ z_p \end{pmatrix} 
+  = \begin{pmatrix} \frac{\alpha_1}{\beta_3} \\ \frac{\alpha_2}{\beta_3} \\ 0 \end{pmatrix} ft 
+  + \begin{pmatrix} \frac{\beta_1}{\beta_3} \\ \frac{\beta_2}{\beta_3} \\ 1 \end{pmatrix}
+\]
+and
+\[
+  \begin{pmatrix} x'_p \\ y'_p \\ z'_p \end{pmatrix} 
+  = \begin{pmatrix} \frac{\alpha_1}{\beta'_3} \\ \frac{\alpha_2}{\beta'_3} \\ 0 \end{pmatrix} ft' 
+  + \begin{pmatrix} \frac{\beta'_1}{\beta'_3} \\ \frac{\beta'_2}{\beta'_3} \\ 1 \end{pmatrix}
+\]
+We can see that these lines are parallel in the image plane. Thus, they are either identical (in the case of $ \frac{\beta_1}{\beta_3} = \frac{\beta'_1}{\beta'_3}, \frac{\beta_2}{\beta_3} = \frac{\beta'_2}{\beta'_3} $) or parallel without intersecting (otherwise). Both cases suggest the vanishing point lie in infinity.
+
+\end{proof}
+
+\section{}
+The projection is an ellipse.
+\begin{proof}
+Since the sphere is rotational symmetric with any angle about the line that connects the camera and the center of the sphere. All the "light" that is from the sphere to the camera forms a circle cone. The intersection of the cone and the image plane is the projection of the sphere. Thus, the projection is an ellipse. 
+
+As a special case, if the center of the sphere is on z-axis, the intersection is a circle. Otherwise, the intersection is a ellipse that is not a circle (, cause the image plane would be inclined according to the cone).
+\end{proof}
+
+\section{}
+Set the scene coordinate origin to the camera. Thus the scene coordinates of the table corner would be $(150, 100, -300+75)^T = (150, 100, -225)^T $. 
+
+Set the z-axis in camera coordinates to the optical axis, the x-axis to horizontal direction and the y-axis to from up to down. To rotate the scene coordinates to camera coordinates should perform rotation about z-axis $\gamma = 45^{\circ}$ and rotation about new x-axis $\alpha = 150^{\circ}$.
+The rotation matrix should be
+\[ R = R_x R_z
+= \begin{pmatrix}
+  1 & 0 & 0 \\
+  0 & cos \alpha & sin \alpha \\
+  0 & -sin \alpha & cos \alpha
+\end{pmatrix}
+ \begin{pmatrix}
+  cos \gamma & sin \gamma & 0 \\
+  -sin \gamma & cos \gamma & 0\\
+  0 & 0 & 1
+\end{pmatrix}
+= \begin{pmatrix}
+     0.7071 & 0.7071 & 0.0000 \\
+   0.6124 & -0.6124 & 0.5000 \\
+   0.3536 & -0.3536 & -0.8660
+\end{pmatrix}
+\].
+
+Thus, the camera coordinates of the table corner are
+\[
+\begin{pmatrix}
+     0.7071 & 0.7071 & 0.0000 \\
+   0.6124 & -0.6124 & 0.5000 \\
+   0.3536 & -0.3536 & -0.8660
+\end{pmatrix}
+\begin{pmatrix} 150 \\ 100 \\ -225 \end{pmatrix}
+= \begin{pmatrix} 176.777 \\ -81.881 \\ 212.533 \end{pmatrix}
+\]
+And, its image coordinates are
+\[
+  \begin{pmatrix} \frac{176.777}{212.533} \\ \frac{-81.881}{212.533} \\ 1 \end{pmatrix} \times 35 
+  = \begin{pmatrix} 29.112 \\ -13.484 \\ 35 \end{pmatrix} (mm)
+\]
+
+\end{document}

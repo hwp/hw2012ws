@@ -1,0 +1,522 @@
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2012.3.10)  17 JAN 2013 20:54
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**seminarpaper_hwp
+(./seminarpaper_hwp.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2008/07/08 v3.8m The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/english.ldf
+Language: english 2005/03/30 v3.3o English support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+)
+\l@british = a dialect from \language\l@english 
+\l@UKenglish = a dialect from \language\l@english 
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+(/usr/share/texlive/texmf-dist/tex/latex/acronym/acronym.sty
+Package: acronym 2010/09/08 v1.36 Support for acronyms (Tobias Oetiker)
+
+(/usr/share/texlive/texmf-dist/tex/latex/bigfoot/suffix.sty
+Package: suffix 2006/07/15 1.5 Variant command support
+)
+\AC@clearlist=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+\c@ALC@unique=\count89
+\c@ALC@line=\count90
+\c@ALC@rem=\count91
+\c@ALC@depth=\count92
+\ALC@tlm=\skip43
+\algorithmicindent=\skip44
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count93
+\float@exts=\toks16
+\float@box=\box26
+\@float@everytoks=\toks17
+\@floatcapt=\box27
+)
+\@float@every@algorithm=\toks18
+\c@algorithm=\count94
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks19
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip45
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks20
+\ex@=\dimen104
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count95
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count96
+\leftroot@=\count97
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count98
+\DOTSCASE@=\count99
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count100
+\c@MaxMatrixCols=\count101
+\dotsspace@=\muskip10
+\c@parentequation=\count102
+\dspbrk@lvl=\count103
+\tag@help=\toks21
+\row@=\count104
+\column@=\count105
+\maxfields@=\count106
+\andhelp@=\toks22
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks23
+\multlinegap=\skip46
+\multlinetaggap=\skip47
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2009/07/02 v2.20.1
+\thm@style=\toks25
+\thm@bodyfont=\toks26
+\thm@headfont=\toks27
+\thm@notefont=\toks28
+\thm@headpunct=\toks29
+\thm@preskip=\skip48
+\thm@postskip=\skip49
+\thm@headsep=\skip50
+\dth@everypar=\toks30
+)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen113
+\lightrulewidth=\dimen114
+\cmidrulewidth=\dimen115
+\belowrulesep=\dimen116
+\belowbottomsep=\dimen117
+\aboverulesep=\dimen118
+\abovetopsep=\dimen119
+\cmidrulesep=\dimen120
+\cmidrulekern=\dimen121
+\defaultaddspace=\dimen122
+\@cmidla=\count107
+\@cmidlb=\count108
+\@aboverulesep=\dimen123
+\@belowrulesep=\dimen124
+\@thisruleclass=\count109
+\@lastruleclass=\count110
+\@thisrulewidth=\dimen125
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: xetex.def on input line 130.
+
+(/usr/share/texlive/texmf-dist/tex/xelatex/xetex-def/xetex.def
+File: xetex.def 2009/11/22 v0.94 LaTeX color/graphics driver for XeTeX (RRM/JK)
+
+))
+(/usr/share/texlive/texmf-dist/tex/latex/fancybox/fancybox.sty
+Package: fancybox 2010/05/15 1.4
+
+Style option: `fancybox' v1.4 <2010/05/15> (tvz)
+\@fancybox=\box30
+\shadowsize=\dimen126
+\@Sbox=\box31
+\do@VerbBox=\toks31
+\the@fancyput=\toks32
+\this@fancyput=\toks33
+\EndVerbatimTokens=\toks34
+\Verbatim@Outfile=\write3
+\Verbatim@Infile=\read1
+) (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip51
+\f@ncyO@elh=\skip52
+\f@ncyO@erh=\skip53
+\f@ncyO@olh=\skip54
+\f@ncyO@orh=\skip55
+\f@ncyO@elf=\skip56
+\f@ncyO@erf=\skip57
+\f@ncyO@olf=\skip58
+\f@ncyO@orf=\skip59
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count111
+\Gm@cntv=\count112
+\c@Gm@tempcnt=\count113
+\Gm@bindingoffset=\dimen127
+\Gm@wd@mp=\dimen128
+\Gm@odd@mp=\dimen129
+\Gm@even@mp=\dimen130
+\Gm@layoutwidth=\dimen131
+\Gm@layoutheight=\dimen132
+\Gm@layouthoffset=\dimen133
+\Gm@layoutvoffset=\dimen134
+\Gm@dimlist=\toks35
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: xetex.def on input line 91.
+)
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip60
+\LTright=\skip61
+\LTpre=\skip62
+\LTpost=\skip63
+\LTchunksize=\count114
+\LTcapwidth=\dimen137
+\LT@head=\box32
+\LT@firsthead=\box33
+\LT@foot=\box34
+\LT@lastfoot=\box35
+\LT@cols=\count115
+\LT@rows=\count116
+\c@LT@tables=\count117
+\c@LT@chunks=\count118
+\LT@p@ftn=\toks36
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count119
+\lst@gtempboxa=\box36
+\lst@token=\toks37
+\lst@length=\count120
+\lst@currlwidth=\dimen138
+\lst@column=\count121
+\lst@pos=\count122
+\lst@lostspace=\dimen139
+\lst@width=\dimen140
+\lst@newlines=\count123
+\lst@lineno=\count124
+\lst@maxwidth=\dimen141
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count125
+\lst@skipnumbers=\count126
+\lst@framebox=\box37
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
+\c@tracingmulticols=\count127
+\mult@box=\box38
+\multicol@leftmargin=\dimen142
+\c@unbalance=\count128
+\c@collectmore=\count129
+\doublecol@number=\count130
+\multicoltolerance=\count131
+\multicolpretolerance=\count132
+\full@width=\dimen143
+\page@free=\dimen144
+\premulticols=\dimen145
+\postmulticols=\dimen146
+\multicolsep=\skip64
+\multicolbaselineskip=\skip65
+\partial@page=\box39
+\last@line=\box40
+\mult@rightbox=\box41
+\mult@grightbox=\box42
+\mult@gfirstbox=\box43
+\mult@firstbox=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\@tempa=\box54
+\@tempa=\box55
+\@tempa=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\c@columnbadness=\count133
+\c@finalcolumnbadness=\count134
+\last@try=\dimen147
+\multicolovershoot=\dimen148
+\multicolundershoot=\dimen149
+\mult@nat@firstbox=\box62
+\colbreak@box=\box63
+\multicol@sort@counter=\count135
+)
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen150
+)
+(/usr/share/texlive/texmf-dist/tex/latex/rotating/rotating.sty
+Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
+\c@r@tfl@t=\count136
+\rotFPtop=\skip66
+\rotFPbot=\skip67
+\rot@float@box=\box64
+\rot@mess@toks=\toks38
+)
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip68
+\subfigcapskip=\skip69
+\subfigcaptopadj=\dimen151
+\subfigbottomskip=\skip70
+\subfigcapmargin=\dimen152
+\subfiglabelskip=\skip71
+\c@subfigure=\count137
+\c@lofdepth=\count138
+\c@subtable=\count139
+\c@lotdepth=\count140
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip72
+\subfig@bottom=\skip73
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen153
+\extrarowheight=\dimen154
+\NC@list=\toks39
+\extratabsurround=\skip74
+\backup@length=\skip75
+)
+\TX@col@width=\dimen155
+\TX@old@table=\dimen156
+\TX@old@col=\dimen157
+\TX@target=\dimen158
+\TX@delta=\dimen159
+\TX@cols=\count141
+\TX@ftn=\toks40
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/boxedminipage/boxedminipage.sty)
+\c@theorem=\count142
+\c@axiom=\count143
+\c@definition=\count144
+
+(./seminarpaper_hwp.aux)
+\openout1 = `seminarpaper_hwp.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(88.71565pt, 419.16621pt, 89.626pt)
+* v-part:(T,H,B)=(77.84674pt, 650.43pt, 116.77011pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=419.16621pt
+* \textheight=650.43pt
+* \oddsidemargin=16.44566pt
+* \evensidemargin=17.35602pt
+* \topmargin=-31.42325pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=95.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\c@lstlisting=\count145
+[1
+
+] [2] (./seminarpaper_hwp.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 4.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 4.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+))
+\tf@toc=\write4
+\openout4 = `seminarpaper_hwp.toc'.
+
+ [1] [2
+
+] [3]
+File: ./data/mendel.jpg Graphic file (type QTm)
+
+<use  "./data/mendel.jpg" > [4]
+File: ./data/molecubes.png Graphic file (type QTm)
+ <use  "./data/molecubes.png" > [5]
+Overfull \hbox (10.71022pt too wide) in paragraph at lines 290--291
+\OT1/cmr/m/it/12 al.\OT1/cmr/m/n/12 also pro-posed an evolved de-sign for 2-D M
+ole-cubes in a sim-u-lat-ing environment[[]]. 
+ []
+
+
+Underfull \vbox (badness 2452) has occurred while \output is active []
+
+ [6]
+(./seminarpaper_hwp.bbl
+Missing character: There is no – in font cmr12!
+Missing character: There is no – in font cmr12!
+Missing character: There is no – in font cmr12!
+Missing character: There is no – in font cmr12!
+Missing character: There is no – in font cmr12!
+ [7]
+Missing character: There is no – in font cmr12!
+) [8] (./seminarpaper_hwp.aux) ) 
+Here is how much of TeX's memory you used:
+ 5050 strings out of 495719
+ 66426 string characters out of 3188912
+ 136382 words of memory out of 3000000
+ 8079 multiletter control sequences out of 15000+200000
+ 11755 words of font info for 43 fonts, out of 3000000 for 9000
+ 15 hyphenation exceptions out of 8191
+ 27i,12n,43p,761b,318s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on seminarpaper_hwp.pdf (10 pages).

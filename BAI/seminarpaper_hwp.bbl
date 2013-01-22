@@ -1,0 +1,83 @@
+\begin{thebibliography}{10}
+
+\bibitem{chirikjian_self-replicating_2002}
+{G.S.} Chirikjian, Yu~Zhou, and J.~Suthakorn.
+\newblock Self-replicating robots for lunar development.
+\newblock {\em {IEEE/ASME} Transactions on Mechatronics}, 7(4):462--472,
+  December 2002.
+
+\bibitem{freitas_report_1981}
+R.~A. Freitas.
+\newblock Report on the {NASA/ASEE} 1980 summer study on advanced automation
+  for space missions.
+\newblock {\em Journal of the British Interplanetary Society}, 34:407--408,
+  1981.
+
+\bibitem{jones_reprap_2011}
+R.~Jones, P.~Haufe, E.~Sells, P.~Iravani, V.~Olliver, C.~Palmer, and A.~Bowyer.
+\newblock {RepRap} – the replicating rapid prototyper.
+\newblock {\em Robotica}, 29(01):177--191, January 2011.
+
+\bibitem{kaloutsakis_stochastic_2011}
+G.~Kaloutsakis and G.~S. Chirikjian.
+\newblock A stochastic self-replicating robot capable of hierarchical assembly.
+\newblock {\em Robotica}, 29(01):137--152, January 2011.
+
+\bibitem{lee_robotic_2007}
+K.~Lee and {G.S.} Chirikjian.
+\newblock Robotic self-replication.
+\newblock {\em {IEEE} Robotics \& Automation Magazine}, 14(4), December 2007.
+
+\bibitem{lee_robotic_2008}
+K.~Lee, M.~Moses, and G.~S. Chirikjian.
+\newblock Robotic self-replication in structured environments: Physical
+  demonstrations and complexity measures.
+\newblock {\em The International Journal of Robotics Research},
+  27(3-4):387--401, March 2008.
+
+\bibitem{lipson_homemade_2005}
+H.~Lipson.
+\newblock Homemade [fabrication technology].
+\newblock {\em Spectrum, {IEEE}}, 42(5):24–31, 2005.
+
+\bibitem{malone_fabhome:_2007}
+E.~Malone and H.~Lipson.
+\newblock {Fab@Home:} the personal desktop fabricator kit.
+\newblock {\em Rapid Prototyping Journal}, 13(4):245–255, 2007.
+
+\bibitem{moses_towards_2009}
+M.~Moses, H.~Yamaguchi, and G.~S. Chirikjian.
+\newblock Towards cyclic fabrication systems for modular robotics and rapid
+  manufacturing.
+\newblock In {\em Proceedings of robotics: science and systems}, 2009.
+
+\bibitem{suthakorn_autonomous_2003}
+J.~Suthakorn, A.~B. Cushing, and G.~S. Chirikjian.
+\newblock An autonomous self-replicating robotic system.
+\newblock In {\em Advanced Intelligent Mechatronics, 2003. {AIM} 2003.
+  Proceedings. 2003 {IEEE/ASME} International Conference on}, volume~1, page
+  137–142, 2003.
+
+\bibitem{von_neumann_theory_1962}
+J.~von Neumann and A.~W. Burk.
+\newblock {\em Theory of Self-Reproducing Automata}.
+\newblock University of Illinois Press, Illinois, 1962.
+
+\bibitem{yim_modular_2007}
+M.~Yim, W.~M. Shen, B.~Salemi, D.~Rus, M.~Moll, H.~Lipson, E.~Klavins, and
+  G.~S. Chirikjian.
+\newblock Modular self-reconfigurable robot systems [grand challenges of
+  robotics].
+\newblock {\em Robotics \& Automation Magazine, {IEEE}}, 14(1):43–52, 2007.
+
+\bibitem{zykov_self-reproducing_2005}
+V.~Zykov, E.~Mytilinaios, B.~Adams, and H.~Lipson.
+\newblock Self-reproducing machines.
+\newblock {\em Nature}, 435(7039):163–164, 2005.
+
+\bibitem{zykov_evolved_2007}
+V.~Zykov, E.~Mytilinaios, M.~Desnoyer, and H.~Lipson.
+\newblock Evolved and designed self-reproducing modular robotics.
+\newblock {\em {IEEE} Transactions on Robotics}, 23(2):308--319, April 2007.
+
+\end{thebibliography}

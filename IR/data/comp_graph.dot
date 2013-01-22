@@ -1,0 +1,13 @@
+digraph G {
+  rankdir=LR;
+  _image_view [label="/image_view"];
+  _object_detection [label="/object_detect"];
+  _grasp [label="/grasp"];
+  _rosout [label="/rosout"];
+  _gscam_publisher [label="/gscam"];
+    _gscam_publisher->_rosout [label="/rosout"]
+    _image_view->_rosout [label="/rosout"]
+    _gscam_publisher->_image_view [label="/gscam/image"]
+    _gscam_publisher->_object_detection [label="/gscam/image"]
+    _object_detection->_rosout [label="/rosout"]
+    _object_detection->_grasp [label="/object_detect/pos"]}
