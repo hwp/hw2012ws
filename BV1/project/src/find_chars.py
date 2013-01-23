@@ -77,16 +77,24 @@ def local_find(integral, (x, y)) :
 	cont = True
 	while cont :
 		cont = False
-		if lx < MAX_SIZE and density(integral, x - lx - MARGIN_SIZE, x - lx, y - ly, y + ry) > MARGIN_THRESHOLD :
+		if lx < MAX_SIZE \
+			and density(integral, x - lx - MARGIN_SIZE, x - lx, y - ly, y + ry) > MARGIN_THRESHOLD \
+			and x - lx - MARGIN_SIZE > 0:
 			lx = lx + 1
 			cont = True
-		if rx < MAX_SIZE and density(integral, x + rx, x + rx + MARGIN_SIZE, y - ly, y + ry) > MARGIN_THRESHOLD :
+		if rx < MAX_SIZE \
+			and density(integral, x + rx, x + rx + MARGIN_SIZE, y - ly, y + ry) > MARGIN_THRESHOLD \
+			and x + rx + MARGIN_SIZE < integral.shape[0] - 1:
 			rx = rx + 1
 			cont = True
-		if ly < MAX_SIZE and density(integral, x - lx, x + rx, y - ly - MARGIN_SIZE, y - ly) > MARGIN_THRESHOLD :
+		if ly < MAX_SIZE \
+			and density(integral, x - lx, x + rx, y - ly - MARGIN_SIZE, y - ly) > MARGIN_THRESHOLD \
+			and y - ly - MARGIN_SIZE > 0:
 			ly = ly + 1
 			cont = True
-		if ry < MAX_SIZE and density(integral, x - lx, x + rx, y + ry, y + ry + MARGIN_SIZE) > MARGIN_THRESHOLD :
+		if ry < MAX_SIZE \
+			and density(integral, x - lx, x + rx, y + ry, y + ry + MARGIN_SIZE) > MARGIN_THRESHOLD \
+			and y + ry + MARGIN_SIZE < integral.shape[1] - 1:
 			ry = ry + 1
 			cont = True
 	return (x - lx - MARGIN_SIZE, y - ly - MARGIN_SIZE, lx + rx + 2 * MARGIN_SIZE, ly + ry + 2 * MARGIN_SIZE) 
@@ -119,17 +127,18 @@ def find_match(image, temp, cands) :
 		cand = image[x : x + w, y : y + h]
 		img_kp = detector.detect(cand)
 		img_kp, img_ds = extractor.compute(cand, img_kp)
-		mm = matcher.knnMatch(tmp_ds, img_ds, 1)
+		if img_ds is None :
+			continue
+		mm = matcher.match(tmp_ds, img_ds)
 		dx = []
 		dy = []
 		dist = []
-		for ml in mm :
-			for m in ml :
-				kp1 = tmp_kp[m.queryIdx]
-				kp2 = img_kp[m.trainIdx]
-				dx.append(kp2.pt[1] - kp1.pt[1])
-				dy.append(kp2.pt[0] - kp1.pt[0])
-				dist.append(m.distance)
+		for m in mm :
+			kp1 = tmp_kp[m.queryIdx]
+			kp2 = img_kp[m.trainIdx]
+			dx.append(kp2.pt[1] - kp1.pt[1])
+			dy.append(kp2.pt[0] - kp1.pt[0])
+			dist.append(m.distance)
 		score = 1.0 / (.1 + numpy.power(dist, 2))
 		score = score / numpy.max(score)
 		score[score < 0.4] = 0.0
