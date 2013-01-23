@@ -297,10 +297,26 @@ The 2-D Molecubes are similar to 3-D Molecubes but the model is 2 dimensional an
 	 \label{fig:2dmole}}
 \end{figure}
 
-The evolution algorithm consists of two steps. The first is to evolve the morphology of the machine. As there are millions of combinations and layouts of the modules, the varied morphology of the robot can result in different capability of reaching to the surrounding area. It is neccessary for the robot to reach an area that contains the detacted copy of itself and the dispenser(``feeding'') locations. Figure \ref{fig:2dmole}a shows the reachable area of an L-shape robot and an F-shape robot.
+\begin{figure}[hbtp]
+	 \centerline{\includegraphics[width=.6\textwidth]{zykov-280}}
+	 {\caption{Fitness value changes over generations. (top) Stage of morphology search. (bottom) Stage of controller search. (from \cite{zykov_evolved_2007})}
+	 \label{fig:fitness}}
+\end{figure}
 
+The evolution algorithm consists of two stages. The first stage is to evolve the morphology of the machine, and the second stage is to evolve the control sequence of the robot.
 
+During the morphology evolving stage, a ``good'' shape for self-replication is automatically found. As there are millions of combinations and layouts of the modules, the varied morphology of the robot can result in different capability of reaching to the surrounding area. It is neccessary for the robot to reach an area that contains the detacted copy of itself and the dispenser(``feeding'') locations. Figure \ref{fig:2dmole}a shows the reachable area of an L-shape robot and an F-shape robot. In this stage, the fitness funtion is defined by coverage of the goal location :
+\[ fitness = \frac{|reachableArea \cap goalArea|}{|goalArea|} \] where the $reachableArea$ is the area of those cells adjacent to at least one ``end-effector'' in any state and the $goalArea$ is the area of the copy. A variable-length gnome is defined to represent a morphology of the machine. One of the results of the evolutionary search is the L-shape robot in Figure \ref{fig:2dmole}a. The fitness value during the evolution process is shown in Figure \ref{fig:fitness}(top).
+
+In the second stage, the robot evolves a sequence of moves to making a replica of itself. The fitness function is given as below: 
+\[ fitness = 0.8p + 0.2 \frac{c - s + 1}{c} - 0.03 e \] 
+where $p$ is the weighted fraction of the goal location covered; $c$ is number of blocks inside the model; $s$ is number of dispensers and $e$ is number of excess blocks beyond those needed. The gnome for the controling sequence is a string of three different types of move, which are (1) trying to swivel a swiveling block (2) attach a new block from its end-effector (3) detach a copy block from its end-effector. Using evlotionary search, possible replicating sequences are found. Same as the first stage, the fitness value is shown in  Figure \ref{fig:fitness}(bottom). Figure \ref{fig:l-repproc} shows one of the replication process of the L-shape robot.
  
+\begin{figure}[hbtp]
+	 \centerline{\includegraphics[width=.6\textwidth]{zykov-279}}
+	 {\caption{Replication process of the L-shape robot. Some intermediate states is not shown.(from \cite{zykov_evolved_2007})}
+	 \label{fig:l-repproc}}
+\end{figure}
 
 \section{Self-assembly of randomly agitated modules}
 \label{sec:random}
