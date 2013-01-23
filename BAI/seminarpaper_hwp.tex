@@ -289,9 +289,15 @@ The replication procedure, namely the sequence of movement, is manually designed
 \subsection{Evolved design}
 Rather than design the robots shape and replicating sequence manually, Zykov \etal also proposed an evolved design method for 2-D Molecubes in a simulating environment\cite{zykov_evolved_2007}.
 
-The 2-D Molecubes are similar to 3-D Molecubes but the model is 2 dimensional and the modules are of two different types. The two types of the modules are swiveling blocks with permanent magnets and nonswiveling blocks with switchable electromagnet (an ``end-effector''). Like its 3-D version, the swiveling blocks can rotate about it diagnose. An ``end-effector'' are able to take the initiative to attach to another cube.
+The 2-D Molecubes are similar to 3-D Molecubes but the model is 2 dimensional and the modules are of two different types. The two types of the modules are swiveling blocks with permanent magnets and nonswiveling blocks with switchable electromagnet (an ``end-effector''). Like its 3-D version, the swiveling blocks can rotate about it diagnose. An ``end-effector'' are able to take the initiative to attach to another cube. Figure \ref{fig:2dmole}a shows an example of 2-D Molecubes and demonstrate how the swiveling blocks work.
 
-The evolution algorithm consists of two steps. The first is to evolve the morphology of the machine. As there are millions of combinations and layouts of the modules, the varied morphology of the robot can result in different capability of reaching to surround area. It is neccessary for the robot to reach an area that contains the detacted copy of itself and the ``feeding'' locations.
+\begin{figure}[hbtp]
+	 \centerline{\includegraphics[width=.7\textwidth]{zykov-271}}
+	 {\caption{2-D Molecubes (a) Swiveling module can swivel above the diagnose (b) Demonstration of reachable area (from \cite{zykov_evolved_2007})}
+	 \label{fig:2dmole}}
+\end{figure}
+
+The evolution algorithm consists of two steps. The first is to evolve the morphology of the machine. As there are millions of combinations and layouts of the modules, the varied morphology of the robot can result in different capability of reaching to the surrounding area. It is neccessary for the robot to reach an area that contains the detacted copy of itself and the dispenser(``feeding'') locations. Figure \ref{fig:2dmole}a shows the reachable area of an L-shape robot and an F-shape robot.
 
 
  
@@ -316,8 +322,8 @@ The evolution algorithm consists of two steps. The first is to evolve the morpho
 % ``bib.bib''
 %
 
+\addcontentsline{toc}{section}{References}% Add to the TOC
 \bibliography{bib}
 \bibliographystyle{plain}
-\addcontentsline{toc}{section}{Bibliography}% Add to the TOC
 
 \end{document}
