@@ -332,19 +332,25 @@ The earliest design of this kind of self-repliating robots can be dated back to 
 \subsection{Girffith's design}
 Using electromechanical modules randomly floating on an air table, Griffith \etal realized a self-replicating robot which can imitate the DNA replication process\cite{griffith_growing_2004}\cite{griffith_self-replication_2005}. They conducted experiments on self-replication of 5-bit strings, which seccessfully showed that the robot can replicate autonoumously and gain a exponential growth while the suppling modules are sufficient.
 
-The basic module for this robots is a square-like shaped plastic plate equiped with latches and communicating coils (See figure \ref{fig:gri-unit}). The two pairs of opposite edges are convex and concave respectively. The design of this shape makes them possible to tessellate in a 2-D space. It also reduces the complexity for assembling, as it requires the attaching modules places in a specific orientation. Furthermore, their mechanical experiments have shown that this shape increases the likelihood of successful binding upon collision. Figure \ref{fig:gri-sqr} shows that four modules are successfully assembled in the square lattice. 
-
-\begin{figure}[hbtp]
+\begin{figure}[thbp]
 	 \centerline{\includegraphics[width=.4\textwidth]{griffith-000}}
 	 {\caption{The basic module of the self-replicating robot. The module can communicate with and attach to other modules nearby. (from \cite{griffith_growing_2004})}
 	 \label{fig:gri-unit}}
 \end{figure}
 
-\begin{figure}[hbtp]
+\begin{figure}[thbp]
 	 \centerline{\includegraphics[width=.4\textwidth]{griffith-001}}
-	 {\caption{Four modules are successfully assembled in the square lattice (from \cite{griffith_growing_2004})}
+	 {\caption{Four modules are successfully assembled in a square lattice (from \cite{griffith_growing_2004})}
 	 \label{fig:gri-sqr}}
 \end{figure}
+
+The basic module for this robot is a square-like shaped plastic plate equiped with circuit board, latches and communicating coils (See figure \ref{fig:gri-unit}). The two pairs of opposite edges are convex and concave respectively. The design of this shape makes them possible to tessellate in a 2-D space. It also reduces the complexity for assembling, as it requires the attaching modules places in a specific orientation. Furthermore, their mechanical experiments have shown that this shape increases the likelihood of successful binding upon collision. Figure \ref{fig:gri-sqr} shows that four modules are successfully assembled in a square lattice. 
+
+There are two types of modules, green and yellow, which are identical in shape. It's the microcontroller on the circuit board that identifies the type of the module. The communicating coils allows the modules to communicate via wireless network with other modules within the distance of 10mm. Thus, neighbor modules mutually can know the type of others.
+
+Each module has two latch-hooks and two latch-catches. The latch-hooks are controlled by electromagnets, which are directly connected to the microcontroller. Therefore, the module can change its state with adjacent modules via turning on and off the hook. Comparing to pure electromagnet latching, this design is less power consuming, and more suitable for the floating module.
+
+The replication process is performed on an air table, on which the modules moves randomly. A 5-bit string (5 linearly connected modules) is priorly prepared as the template. Then, %TODO
 
 \subsection{Matsumoto's design}
 
