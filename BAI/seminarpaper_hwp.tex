@@ -305,18 +305,18 @@ The 2-D Molecubes are similar to 3-D Molecubes but the model is 2 dimensional an
 
 The evolution algorithm consists of two stages. The first stage is to evolve the morphology of the machine, and the second stage is to evolve the control sequence of the robot.
 
+\begin{figure}[hbtp]
+	 \centerline{\includegraphics[width=.6\textwidth]{zykov-279}}
+	 {\caption{Replication process of the L-shape robot. Some intermediate states is not shown.(from \cite{zykov_evolved_2007})}
+	 \label{fig:l-repproc}}
+\end{figure}
+
 During the morphology evolving stage, a ``good'' shape for self-replication is automatically found. As there are millions of combinations and layouts of the modules, the varied morphology of the robot can result in different capability of reaching to the surrounding area. It is neccessary for the robot to reach an area that contains the detacted copy of itself and the dispenser(``feeding'') locations. Figure \ref{fig:2dmole}a shows the reachable area of an L-shape robot and an F-shape robot. In this stage, the fitness funtion is defined by coverage of the goal location :
 \[ fitness = \frac{|reachableArea \cap goalArea|}{|goalArea|} \] where the $reachableArea$ is the area of those cells adjacent to at least one ``end-effector'' in any state and the $goalArea$ is the area of the copy. A variable-length gnome is defined to represent a morphology of the machine. One of the results of the evolutionary search is the L-shape robot in Figure \ref{fig:2dmole}a. The fitness value during the evolution process is shown in Figure \ref{fig:fitness}(top).
 
 In the second stage, the robot evolves a sequence of moves to making a replica of itself. The fitness function is given as below: 
 \[ fitness = 0.8p + 0.2 \frac{c - s + 1}{c} - 0.03 e \] 
 where $p$ is the weighted fraction of the goal location covered; $c$ is number of blocks inside the model; $s$ is number of dispensers and $e$ is number of excess blocks beyond those needed. The gnome for the controling sequence is a string of three different types of move, which are (1) trying to swivel a swiveling block (2) attach a new block from its end-effector (3) detach a copy block from its end-effector. Using evlotionary search, possible replicating sequences are found. Same as the first stage, the fitness value is shown in  Figure \ref{fig:fitness}(bottom). Figure \ref{fig:l-repproc} shows one of the replication process of the L-shape robot.
- 
-\begin{figure}[hbtp]
-	 \centerline{\includegraphics[width=.6\textwidth]{zykov-279}}
-	 {\caption{Replication process of the L-shape robot. Some intermediate states is not shown.(from \cite{zykov_evolved_2007})}
-	 \label{fig:l-repproc}}
-\end{figure}
 
 \section{Self-assembly of randomly agitated modules}
 \label{sec:random}
@@ -344,13 +344,30 @@ Using electromechanical modules randomly floating on an air table, Griffith \eta
 	 \label{fig:gri-sqr}}
 \end{figure}
 
-The basic module for this robot is a square-like shaped plastic plate equiped with circuit board, latches and communicating coils (See figure \ref{fig:gri-unit}). The two pairs of opposite edges are convex and concave respectively. The design of this shape makes them possible to tessellate in a 2-D space. It also reduces the complexity for assembling, as it requires the attaching modules places in a specific orientation. Furthermore, their mechanical experiments have shown that this shape increases the likelihood of successful binding upon collision. Figure \ref{fig:gri-sqr} shows that four modules are successfully assembled in a square lattice. 
+The basic module for this robot is a square-like shaped plastic plate equiped with circuit board, latches and communicating coils (See figure \ref{fig:gri-unit}). The two pairs of opposite edges are convex and concave respectively. The design of this shape makes them possible to tessellate in a 2-D space. It also reduces the complexity for assembling, as it requires the attaching modules place in a specific orientation. Furthermore, their mechanical experiments have shown that this shape increases the likelihood of successful binding upon collision. Figure \ref{fig:gri-sqr} shows that four modules are successfully assembled in a square lattice. 
 
-There are two types of modules, green and yellow, which are identical in shape. It's the microcontroller on the circuit board that identifies the type of the module. The communicating coils allows the modules to communicate via wireless network with other modules within the distance of 10mm. Thus, neighbor modules mutually can know the type of others.
+There are two types of modules, green and yellow, which are identical in shape. It's the microcontroller on the circuit board that identifies the type of the module. The communicating coils allows the modules to communicate via wireless network with other modules within the distance of 10mm. Thus, neighbor modules mutually can know the type of others. 
 
-Each module has two latch-hooks and two latch-catches. The latch-hooks are controlled by electromagnets, which are directly connected to the microcontroller. Therefore, the module can change its state with adjacent modules via turning on and off the hook. Comparing to pure electromagnet latching, this design is less power consuming, and more suitable for the floating module.
+Each module has two latch-hooks and two latch-catches. The latch-hooks are controlled by electromagnets, which are directly connected to the microcontroller. Therefore, the module can change its state with adjacent modules via turning on and off the hook. Comparing to pure electromagnet latching, this design is less power consuming, and more suitable for the floating module. 
 
-The replication process is performed on an air table, on which the modules moves randomly. A 5-bit string (5 linearly connected modules) is priorly prepared as the template. Then, %TODO
+The latching behavior of each module is controlled by a 7-state, finite-state machine in the microcontroller. The finite-state machine also carries out error-checking machanism, which is essential for complex system.
+
+At the begining of their experiment, a template 5-bit string (5 linearly connected modules) together with supplying modules are put on an air table. As the modules move randomly on the table, they are catched by the template string by chances. Self-similarity of the catched module is checked for the modules to decide whether to keep or release. After finishing replication, the copy is released and becomes another template. Thus, the number of the specific template strings grows exponantially as long as the spare modules are sufficient.
+
+\begin{figure}[thbp]
+	 \centerline{\includegraphics[width=1\textwidth]{griffith-1}}
+	 {\caption{ Snopshots taken during the self-replication of a 5-bit string. (from \cite{griffith_self-replication_2005})}
+	 \label{fig:gri-proc}}
+\end{figure}
+
+\begin{figure}[thbp]
+	 \centerline{\includegraphics[width=.4\textwidth]{griffith}}
+	 {\caption{ Replication kinetics for bound units (blue) and replicated strings (red) as a function of time (from \cite{griffith_self-replication_2005})}
+	 \label{fig:gri-expo}}
+\end{figure}
+
+Figure \ref{fig:gri-proc} shows some snopshots taken during the experiment. In frame 1, 
+
 
 \subsection{Matsumoto's design}
 
