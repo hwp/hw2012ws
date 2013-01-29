@@ -233,6 +233,11 @@ For evaluating the quality of a self-replicating robots, we discuss the followin
 % \subsection{Difficulties in self-replicating robots}
 % \TODO{} 
 
+\subsection{Structure of this paper}
+In this paper, we review the three categories of self-replicating robots. Each category is represented by one or two recent achievements. 
+
+In section \ref{sec:fabri}, we talk about . In section \ref{sec:module}, . In section \ref{sec:random}, .
+
 \section{Directed replication via fabrication}
 \label{sec:fabri}
 
@@ -243,7 +248,7 @@ Rapid prototypers or 3D printers are machines that can rapidly fabricate objects
 
 In the past 30 years, rapid prototyping have been favored by the manufacturing industry, as such technologies can enormously shorten the design period of new products. Recently, scientists made it possible to use prototypers in laboratories or at home.
 
-\subsection{RepRap : an example}
+\subsection{RepRap}
 RepRap is an open-source project for self-replicating rapid prototyping machines\cite{jones_reprap_2011} (see figure \ref{fig:reprap}). The machine adopted fused-filament
 fabrication as the core technique to make product from thermoplastic polymers.
 RepRap is one of the state-of-the-art self-replicating fabricators, as it is capable to create most of its own part, while the rest part are components which are relatively easy to make or to purchase from the market.
@@ -271,7 +276,7 @@ adapt to new circumstances, perform new tasks, or recover from damage\cite{yim_m
 
 Modular self-reconfigurable robots consist of simpler units and larger number of units are suitable for self-replication, as it is easy to program such robots to assemble spare modules into copies. 
 
-\subsection{Molecubes : an example}
+\subsection{Molecubes}
 Researchers from Cornell University (Zykov \etal) implemented Molecubes, which physically demonstrates the ability of self-replication\cite{zykov_self-reproducing_2005}\cite{zykov_evolved_2007}. 
 
 \begin{figure}[t]
@@ -373,24 +378,32 @@ Additionally, self-replication of other shape of robots (not only 1-D, but also 
 \subsection{Matsumoto's design}
 Matsumoto \etal proposed another self-replicating robot using randomly agitated modules\cite{matsumoto_passive_2009}. Comparing to Griffith's design, the module in their design is more simple in structure and the assebly is done in 3-D environment.
 
-There are 3 types of basic modules (white, black and red). Figure \ref{fig:matsu-mod} shows their structure. The cubic unit has mortise and tenon on top and bottom surfaces. Modules of the same type have the complementary structure of mortise and tenon, while modules of different types do not. Thus, the selectivity of matching types is aquired. The solder on the top and bottem surfaces, as well as the hot-melt adhesive on the side surfaces, provides the unit with two kinds of bonds. These two kinds of bonds corresonds to the %TODO DNA
+There are 3 types of basic modules (white, black and red). Figure \ref{fig:matsu-mod} shows their structure. The cubic unit has mortise and tenon on top and bottom surfaces. Modules of the same type have the complementary structure of mortise and tenon, while modules of different types do not. Thus, the selectivity of matching types is aquired. The hot-melt adhesive on the side surfaces and the solder on the top and bottem surfaces, provides the unit with two kinds of bonds, which corresonds to the phosphodiester bond and the hydrogen bond in DNA. The hot-melt adhesive (melting point 78 $^\circ$C) make the chain of the units in one gene stick together. While, the solder (melting point 48 $^\circ$C) is responsible for binding of the matching modules.
 
+Figure \ref{fig:matsu-env} shows the environment for experiment. The modules are floating in the solution during the replication process. The solution is chosen to be heated and stirred during different phase of the process. The phase changes from assembly mode to connection mode, and then division mode. The initial gene is replicated via repetition of the mode changing. Illustration of the replication process is in figure \ref{fig:matsu-modes}. 
 
+Their experiments show successful autonoumous self-replication of both 1-D genes and 2-D genes. Figure \ref{fig:matsu-res} shows the result of replication.
 
 \begin{figure}[t]
-	 \centerline{\includegraphics[width=.8\textwidth]{matsu-001}}
+	 \centerline{\includegraphics[width=.7\textwidth]{matsu-001}}
 	 {\caption{Design of the basic module. (from \cite{matsumoto_passive_2009})}
 	 \label{fig:matsu-mod}}
 \end{figure}
 
-\begin{figure}[t]
-	 \centerline{\includegraphics[width=.6\textwidth]{matsu-003}}
-	 {\caption{Apparatus for experiment. (from \cite{matsumoto_passive_2009})}
+\begin{figure}[h]
+	 \centerline{\includegraphics[width=.55\textwidth]{matsu-003}}
+	 {\caption{The environment for experiment. (from \cite{matsumoto_passive_2009})}
 	 \label{fig:matsu-env}}
 \end{figure}
 
-\begin{figure}[t]
-	 \centerline{\includegraphics[width=.8\textwidth]{matsu-019}}
+\begin{figure}[h]
+	 \centerline{\includegraphics[width=.5\textwidth]{matsu-000}}
+	 {\caption{The process of self-replication (from \cite{matsumoto_passive_2009})}
+	 \label{fig:matsu-modes}}
+\end{figure}
+
+\begin{figure}[h]
+	 \centerline{\includegraphics[width=.7\textwidth]{matsu-019}}
 	 {\caption{Result of self-replication (from \cite{matsumoto_passive_2009})}
 	 \label{fig:matsu-res}}
 \end{figure}
