@@ -248,7 +248,7 @@ RepRap is an open-source project for self-replicating rapid prototyping machines
 fabrication as the core technique to make product from thermoplastic polymers.
 RepRap is one of the state-of-the-art self-replicating fabricators, as it is capable to create most of its own part, while the rest part are components which are relatively easy to make or to purchase from the market.
 
-\begin{figure}[hbtp]
+\begin{figure}[t]
 	 \centerline{\includegraphics[width=0.7\textwidth]{mendel}}
 	 {\caption{RepRap Version II ``Mendel'' (from \cite{jones_reprap_2011})}
 	 \label{fig:reprap}}
@@ -274,7 +274,7 @@ Modular self-reconfigurable robots consist of simpler units and larger number of
 \subsection{Molecubes : an example}
 Researchers from Cornell University (Zykov \etal) implemented Molecubes, which physically demonstrates the ability of self-replication\cite{zykov_self-reproducing_2005}\cite{zykov_evolved_2007}. 
 
-\begin{figure}[hbtp]
+\begin{figure}[t]
 	 \centerline{\includegraphics[width=\textwidth]{molecubes}}
 	 {\caption{Molecubes (from \cite{zykov_self-reproducing_2005})}
 	 \label{fig:mole}}
@@ -291,13 +291,13 @@ Rather than design the robots shape and replicating sequence manually, Zykov \et
 
 The 2-D Molecubes are similar to 3-D Molecubes but the model is 2 dimensional and the modules are of two different types. The two types of the modules are swiveling blocks with permanent magnets and nonswiveling blocks with switchable electromagnet (an ``end-effector''). Like its 3-D version, the swiveling blocks can rotate about it diagnose. An ``end-effector'' are able to take the initiative to attach to another cube. Figure \ref{fig:2dmole}a shows an example of 2-D Molecubes and demonstrate how the swiveling blocks work.
 
-\begin{figure}[hbtp]
+\begin{figure}[t]
 	 \centerline{\includegraphics[width=.7\textwidth]{zykov-271}}
 	 {\caption{2-D Molecubes (a) Swiveling module can swivel above the diagnose (b) Demonstration of reachable area (from \cite{zykov_evolved_2007})}
 	 \label{fig:2dmole}}
 \end{figure}
 
-\begin{figure}[hbtp]
+\begin{figure}[t]
 	 \centerline{\includegraphics[width=.6\textwidth]{zykov-280}}
 	 {\caption{Fitness value changes over generations. (top) Stage of morphology search. (bottom) Stage of controller search. (from \cite{zykov_evolved_2007})}
 	 \label{fig:fitness}}
@@ -305,7 +305,7 @@ The 2-D Molecubes are similar to 3-D Molecubes but the model is 2 dimensional an
 
 The evolution algorithm consists of two stages. The first stage is to evolve the morphology of the machine, and the second stage is to evolve the control sequence of the robot.
 
-\begin{figure}[hbtp]
+\begin{figure}[t]
 	 \centerline{\includegraphics[width=.6\textwidth]{zykov-279}}
 	 {\caption{Replication process of the L-shape robot. Some intermediate states is not shown.(from \cite{zykov_evolved_2007})}
 	 \label{fig:l-repproc}}
@@ -332,13 +332,13 @@ The earliest design of this kind of self-repliating robots can be dated back to 
 \subsection{Girffith's design}
 Using electromechanical modules randomly floating on an air table, Griffith \etal realized a self-replicating robot which can imitate the DNA replication process\cite{griffith_growing_2004}\cite{griffith_self-replication_2005}. They conducted experiments on self-replication of 5-bit strings, which seccessfully showed that the robot can replicate autonoumously and gain a exponential growth while the suppling modules are sufficient.
 
-\begin{figure}[thbp]
+\begin{figure}[t]
 	 \centerline{\includegraphics[width=.4\textwidth]{griffith-000}}
 	 {\caption{The basic module of the self-replicating robot. The module can communicate with and attach to other modules nearby. (from \cite{griffith_growing_2004})}
 	 \label{fig:gri-unit}}
 \end{figure}
 
-\begin{figure}[thbp]
+\begin{figure}[t]
 	 \centerline{\includegraphics[width=.4\textwidth]{griffith-001}}
 	 {\caption{Four modules are successfully assembled in a square lattice (from \cite{griffith_growing_2004})}
 	 \label{fig:gri-sqr}}
@@ -352,22 +352,23 @@ Each module has two latch-hooks and two latch-catches. The latch-hooks are contr
 
 The latching behavior of each module is controlled by a 7-state, finite-state machine in the microcontroller. The finite-state machine also carries out error-checking machanism, which is essential for complex system.
 
-At the begining of their experiment, a template 5-bit string (5 linearly connected modules) together with supplying modules are put on an air table. As the modules move randomly on the table, they are catched by the template string by chances. Self-similarity of the catched module is checked for the modules to decide whether to keep or release. After finishing replication, the copy is released and becomes another template. Thus, the number of the specific template strings grows exponantially as long as the spare modules are sufficient.
+At the begining of their experiment, a template 5-bit string (5 linearly connected modules) together with supplying modules are put on an air table. As the modules move randomly on the table, they are catched by the template string by chances. Self-similarity of the catched module is checked for the modules to decide whether to keep or release. After finishing replication, the copy is released and becomes another template. Thus, the number of the specific template strings grows exponentially as long as the spare modules are sufficient.
 
-\begin{figure}[thbp]
+\begin{figure}[t]
 	 \centerline{\includegraphics[width=1\textwidth]{griffith-1}}
 	 {\caption{ Snopshots taken during the self-replication of a 5-bit string. (from \cite{griffith_self-replication_2005})}
 	 \label{fig:gri-proc}}
 \end{figure}
 
-\begin{figure}[thbp]
+\begin{figure}[t]
 	 \centerline{\includegraphics[width=.4\textwidth]{griffith}}
 	 {\caption{ Replication kinetics for bound units (blue) and replicated strings (red) as a function of time (from \cite{griffith_self-replication_2005})}
 	 \label{fig:gri-expo}}
 \end{figure}
 
-Figure \ref{fig:gri-proc} shows some snopshots taken during the experiment. In frame 1, 
+Figure \ref{fig:gri-proc} shows snopshots taken during the experiment. In frame 1, the initial 5-bit string (number 1, green, green, yellow, yellow, green) and several spare modules are placed on the table. In frame 2, spare modules are attached to the template string. From frame 3 to 9, 3 strings (number 2, 3, 4) are replicated according to the initial one. Figure \ref{fig:gri-expo} shows the number of bound units and replicated strings both increase exponentionaly through time. Strings are numbered as in Figure \ref{fig:gri-proc}.
 
+Additionally, self-replication of other shape of robots (not only 1-D, but also 2-D patterns) is implemented too, using the same system.
 
 \subsection{Matsumoto's design}
 
