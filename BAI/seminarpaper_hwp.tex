@@ -217,14 +217,15 @@ Lee \etal\cite{lee_robotic_2008} classified the recent work on self-replicating 
   
   \emph{Self-assembly of randomly agitated modules}: Modules are kept moving randomly in a environment with external work source, and then assemble to functional parts through a stochastic process.
 
-We exclude the category, self-reconfigurable modular robots, for the reason that it is not close related to the topic of self-replication. Although some technology of self-reconfigurable modular robots are basics for self-replicable modular robots, the self-reconfigurable modular robots are not necessarily to be able to replicate.
+We exclude the category, self-reconfigurable modular robots, for the reason that it is not close related to the topic of self-replication. Although some technology of self-reconfigurable modular robots are basics for self-replicable modular robots, they are not necessarily able to replicate.
 
 \subsection{Attributes for self-replicating robots}
-For evaluating the quality of a self-replicating robots, we discuss the following attributes, which are closely related to the implementation and application for self-replicating robots:
+\label{sec:attri}
+To evaluate the quality of a self-replicating robots, we discuss the following attributes, which are closely related to the implementation and application for self-replicating robots:
 
-\emph{Accessibility of raw materials}: For the replication process, there must be physical input, which is the raw materials. The raw materials can be spare robot modules, plastic, metal or substance from nature. We expect the robots can take materials of higher accessibility as the input, so that the robots have higher adaptation in the environment. However, using nature substance as raw material is still an ideal goal for the researchers. So far, we consider those self-replicating robots that use plastic and metal as raw materials are better than those use complex spare robot modules.
+\emph{Input complexity}: For the replication process, there must be physical input, which is the raw materials. The raw materials can be spare robot modules, plastic, metal or substance from nature. We expect the robots can take materials of lower complexity as the input, so that the robots have higher adaptation in the environment. However, using nature substance as raw material is still an ideal goal for the researchers. So far, we consider those self-replicating robots that use plastic and metal as raw materials are better than those use complex spare robot modules.
   
-\emph{Artificial level of environment}: Robots work in different environments. Some are artificially set up, while other are not. According to it artificial level, the working environment can be categorized in three level\cite{lee_robotic_2007} : structured environment, semi-structured environment and unstructured environment. In structured environment, objects are placed in exact precise location with predefined order. In semi-structured or partially structured environment, objects are placed in exact location with small error and random order. An unstructured environment is without any structure resulting from initial human intervention.
+\emph{Working environment}: Robots work in different environments. Some are artificially set up, while other are not. According to it artificial level, the working environment can be categorized in three level\cite{lee_robotic_2007} : structured environment, semi-structured environment and unstructured environment. In structured environment, objects are placed in exact precise location with predefined order. In semi-structured or partially structured environment, objects are placed in exact location with small error and random order. An unstructured environment is without any structure resulting from initial human intervention.
   
 \emph{Autonomy of design}: While the replication process of robots can be totally designed by developers, it is also possible to use evolution algorithm for the design with less predefined knowledge. The evolution ability will be quite essential in future designs as both the structures of the robots and the environment will be more complex, which make it more difficult for researchers to find out a proper procedure for replication.
 
@@ -410,6 +411,13 @@ Their experiments show successful autonomous self-replication of both 1-D genes 
 
 \section{Discussion}
 \label{sec:discuss}
+
+In previous sections, we have described the theory and examples of three types of self-replicating robots, namely directed replication via fabrication, directed replication via module assembly and self-assembly of randomly agitated modules. Each type has realized physical self-replication from different approaches. In this section, we discuss their features according to the attributes we described in section \ref{sec:attri}.
+
+Recent achievements of directed replication via fabrication (take RepRap as the example) has shown the ability of taking considerably low-complexity materials as input. Although these fabricating systems are still not able to fully construct themselves, they are essential prototypes for making self-replicating robots that take raw materials from environment. Their working environment is largly dependent on human intervention, for the fact that they require human to assemble their parts together. It is possible to adapt self-assembly function to their design. However, the addition of functional parts will result in making the machine itself more complex and hard to fabricate. The whole replication process is designed manually.
+
+The directed replication via module assembly 
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
