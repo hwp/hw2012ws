@@ -416,7 +416,9 @@ In previous sections, we have described the theory and examples of three types o
 
 Recent achievements of directed replication via fabrication (take RepRap as the example) has shown the ability of taking considerably low-complexity materials as input. Although these fabricating systems are still not able to fully construct themselves, they are essential prototypes for making self-replicating robots that take raw materials from environment. The limitation is that their working environment is largly dependent on human intervention. They require human to assemble their parts together. It is possible to adapt self-assembly function to their design. However, the addition of functional parts will result in making the machine itself more complex and hard to fabricate. The whole replication process is designed manually.
 
-The robots of directed replication via module assembly shows the 
+The robots of directed replication via module assembly consist of building blocks of high complexity. The robots are more versatile, but the cost of making the additional modules is high. As for the example robot (Molecubes), the robot works in a structured environment, with all additional modules placed in specific locations. This type of self-replicating robots successfully applies evolutionary computation for designing the morphology and control sequences. This application makes it possible to design more complex systems.
+
+The third type, self-assembly of randomly agitated modules, has robot modules of medium complexity. The basic modules are possible to mass produce with low cost. The robots work in unstructured environments.
 
 A short evaluation of the three categories is shown in table \ref{tab:eval}.
 
@@ -428,11 +430,11 @@ A short evaluation of the three categories is shown in table \ref{tab:eval}.
     \hline 
     ~ & Input complexity & Working environment & Antonomy of Design \\
     \hline \hline
-    directed replication via fabrication & Low & Dependent to human intervention & Fully manual \\
+    directed replication via fabrication & Low & Dependent to human intervention & Manual \\
     \hline
     directed replication via module assembly & High & Structured environment & Evolved design \\
     \hline
-    self-assembly of randomly agitated modules & Low & Unstructured environment & Self-organized \\
+    self-assembly of randomly agitated modules & Medium & Unstructured environment & Manual \\
     \hline
   \end{tabular}
 \end{table}
