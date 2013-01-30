@@ -176,7 +176,7 @@
 \section*{Abstract}
 In the past few years, the field of self-replicating robotics has advanced from proof-of-concept systems to physical implementations. This technology of imitating living organisms has many important applications as well as Platonic appeal for scientist.
 
-In this review paper, we discuss the recent studies on self-replicating robotics. We categorize those techniques to three different types: directed replication via fabrication, directed replication via module assembly, self-assembly of randomly agitated modules. These different approaches are evaluated.
+In this review paper, we discuss the recent studies on self-replicating robotics. We categorize those techniques to three different types: directed replication via fabrication, directed replication via module assembly, self-assembly of randomly agitated modules. These different approaches are evaluated. Each type has its advantage and limitation. The combination of multiple types is promising in future research.
 
 % Lists:
 \tableofcontents
@@ -288,7 +288,7 @@ Researchers from Cornell University (Zykov \etal) implemented Molecubes, which p
 
 The robot consists of modules of 10cm cube, of which the two halves can rotate about the long diagnose(see figure \ref{fig:mole}a). Therefore, each module has one degree of freedom(DOF). The six surfaces of the module are equipped with switchable electromagnet, which can be the state of ``north'', ``south'' and ``off''. Thus, the cubes are able to attract or repel the neighbor cubes. Power and information can also be transmitted to neighbor cubes via adjacent surfaces, that are attached. Multiple modules can be assembled to form a chain-like or other shapes. And, the assembled modules can perform more complicated moves(see figure \ref{fig:mole}b). 
 
-The self-replication process is performed in a highly structured environment with some extent of human assistance. The molecubes are placed on a desk with regular grids. Some of the grids provide the Molecubes with attaching points and 12V power supply. There are also some special grids called ``feeding'' location. At those location, spare modules are replenished. That is the only human intervention during the whole reproduction process.
+The self-replication process is performed in a highly structured environment with some extent of human assistance. The Molecubes are placed on a desk with regular grids. Some of the grids provide the Molecubes with attaching points and 12V power supply. There are also some special grids called ``feeding'' location. At those location, spare modules are replenished. That is the only human intervention during the whole reproduction process.
 
 The replication procedure, namely the sequence of movement, is manually designed. Physical experiments in self-replication of 3-module and 4-module robots were carried out. Figure \ref{fig:mole}c shows the self-replication process of the 4-module robot. The process spans out two and half minutes. At first, the original robot is provided. It moves and places its own module to specific location. Then, it picks up spare module from ``feeding'' locations, which is circled in red in the figure. At the end, the identical replica of the 4-module robot is assembled. Their experiments also show that the replica also successfully replicates itself. They also showed their design of replicating sequences for 2n-module ($n > 1$) robots. 
 
@@ -327,7 +327,7 @@ where $p$ is the weighted fraction of the goal location covered; $c$ is number o
 \section{Self-assembly of randomly agitated modules}
 \label{sec:random}
 
-Self-assembly of randomly agitated modules is another type of self-replication. Although the robots are also assembled from modules, it is quite different from directed replication via module assembly, as it does not apply a fixed sequence of ``pick-and-place'' but the whole assembly process are randomly performed. 
+Self-assembly of randomly agitated modules is another type of self-replication. Although the robots are also assembled from modules, it is quite different from directed replication via module assembly, as it does not apply a fixed sequence of ``pick-and-place'' but the whole assembly process are randomly performed.
 
 Note that self-assembly does not imply self-replication. In this section, we refer the term ``Self-assembly of randomly agitated modules'' to those robots that can be assembled to have the same structure with the template's. 
 
@@ -336,7 +336,7 @@ The replication process of DNA, which is well studied by biology scientists, giv
 The earliest design of this kind of self-replicating robots can be dated back to 1957\cite{penrose_self-reproducing_1957}. Recently, Griffith \etal \cite{griffith_self-replication_2005} and Matsumoto \etal \cite{matsumoto_passive_2009} both realized self-replicating robots of the same type.
 
 \subsection{Girffith's design}
-Using electromechanical modules randomly floating on an air table, Griffith \etal realized a self-replicating robot which can imitate the DNA replication process\cite{griffith_growing_2004}\cite{griffith_self-replication_2005}. They conducted experiments on self-replication of 5-bit strings, which successfully showed that the robot can replicate autonomously and gain a exponential growth while the supplying modules are sufficient.
+Using electromechanical modules randomly floating on an air table, Griffith \etal realized a self-replicating robot which can imitate the DNA replication process\cite{griffith_growing_2004}\cite{griffith_self-replication_2005}. They conducted experiments on self-replication of 5-bit strings, which successfully showed that the robot can replicate autonomously and attain an exponential growth while the supplying modules are sufficient.
 
 \begin{figure}[t]
 	 \centerline{\includegraphics[width=.4\textwidth]{griffith-000}}
@@ -414,7 +414,7 @@ Their experiments show successful autonomous self-replication of both 1-D genes 
 
 In previous sections, we have described the theory and examples of three types of self-replicating robots, namely directed replication via fabrication, directed replication via module assembly and self-assembly of randomly agitated modules. Each type has realized physical self-replication from different approaches. In this section, we discuss their features according to the attributes we described in section \ref{sec:attri}.
 
-Recent achievements of directed replication via fabrication (take RepRap as the example) has shown the ability of taking considerably low-complexity materials as input. Although these fabricating systems are still not able to fully construct themselves, they are essential prototypes for making self-replicating robots that take raw materials from environment. The limitation is that their working environment is largly dependent on human intervention. They require human to assemble their parts together. It is possible to adapt self-assembly function to their design. However, the addition of functional parts will result in making the machine itself more complex and hard to fabricate. The whole replication process is designed manually.
+Recent achievements of directed replication via fabrication (take RepRap as the example) has shown the ability of taking considerably low-complexity materials as input. Although these fabricating systems are still not able to fully construct themselves, they are essential prototypes for making self-replicating robots that take raw materials from environment. The limitation is that their working environment is largely dependent on human intervention. They require human to assemble their parts together. It is possible to adapt self-assembly function to their design. However, the addition of functional parts will result in making the machine itself more complex and hard to fabricate. The whole replication process is designed manually.
 
 The robots of directed replication via module assembly consist of building blocks of high complexity. The robots are more versatile, but the cost of making the additional modules is high. As for the example robot (Molecubes), the robot works in a structured environment, with all additional modules placed in specific locations. This type of self-replicating robots successfully applies evolutionary computation for designing the morphology and control sequences. This application makes it possible to design more complex systems.
 
@@ -428,7 +428,7 @@ A short evaluation of the three categories is shown in table \ref{tab:eval}.
   \label{tab:eval}
   \begin{tabular}{|p{4.3cm}|p{2cm}|p{4cm}|p{2.9cm}|}
     \hline 
-    ~ & Input complexity & Working environment & Antonomy of Design \\
+    ~ & Input complexity & Working environment & Autonomy of Design \\
     \hline \hline
     directed replication via fabrication & Low & Dependent to human intervention & Manual \\
     \hline
@@ -439,7 +439,7 @@ A short evaluation of the three categories is shown in table \ref{tab:eval}.
   \end{tabular}
 \end{table}
 
-Extending from John von Neumann's theory on self-replicating automata, scientists have achieved powerful, practical resutls. Especially, various physicially realized self-replicating robots demonstrate the ability of machines to imitate nature organisms from different aspects. In future researches, the combination of the three types of self-replicating robots is possible, in order to attain lowest input complexity and maximum functionality of the system.
+Extending from John von Neumann's theory on self-replicating automata, scientists have achieved powerful, practical results. Especially, various physically realized self-replicating robots demonstrate the ability of machines to imitate nature organisms from different aspects. In future researches, the combination of the three types of self-replicating robots is possible, in order to attain lowest input complexity and maximum functionality of the system.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % hier werden - zum Ende des Textes - die bibliographischen Referenzen
