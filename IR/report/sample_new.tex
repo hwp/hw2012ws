@@ -4,7 +4,7 @@
 
 %\documentclass[letterpaper, 10 pt, conference]{ieeeconf} % Comment this line out
                                                           % if you need a4paper
-\documentclass[a4paper, 10pt, conference]{ieeeconf}       % Use this line for a4
+\documentclass[a4paper, 11pt, conference]{ieeeconf}       % Use this line for a4
                                                           % paper
 
 \IEEEoverridecommandlockouts                              % This command is only
@@ -17,32 +17,12 @@
 \usepackage{graphicx}
 \graphicspath{{../data/}}
 
-% The following packages can be found on http:\\www.ctan.org
-%\usepackage{graphics} % for pdf, bitmapped graphics files
-%\usepackage{epsfig} % for postscript graphics files
-%\usepackage{mathptmx} % assumes new font selection scheme installed
-%\usepackage{times} % assumes new font selection scheme installed
-%\usepackage{amsmath} % assumes amsmath package installed
-%\usepackage{amssymb}  % assumes amsmath package installed
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
 
 \title{\LARGE \bf
   ROS : Robotics Operating System
 }
-
-%\author{ \parbox{3 in}{\centering Huibert Kwakernaak*
-%         \thanks{*Use the $\backslash$thanks command to put information here}\\
-%         Faculty of Electrical Engineering, Mathematics and Computer Science\\
-%         University of Twente\\
-%         7500 AE Enschede, The Netherlands\\
-%         {\tt\small h.kwakernaak@autsubmit.com}}
-%         \hspace*{ 0.5 in}
-%         \parbox{3 in}{ \centering Pradeep Misra**
-%         \thanks{**The footnote marks may be inserted manually}\\
-%        Department of Electrical Engineering \\
-%         Wright State University\\
-%         Dayton, OH 45435, USA\\
-%         {\tt\small pmisra@cs.wright.edu}}
-%}
 
 \author{
   Weipeng He
@@ -60,7 +40,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-  ROS is
+  ROS is a open-source middleware framework for developing robotics applications. It offers a large number of 
 \end{abstract}
 
 
@@ -73,14 +53,14 @@ Robot Operating System (ROS) is a project that promotes the code reuse in roboti
 
 ROS was started from 2007, and now it is widely used in research and industry of robotics. Originally, it was under the name switchyard by the Stanford Artificial Intelligence Laboratory in support of the Stanford AI Robot (STAIR) project. From 2008, its development continues primarily at Willow Garage, with more than twenty institutions collaborating in a federated development model. ROS has been released several times under different distribution names. The latest stable distribution release is ``ROS Groovy Galapagos'' on December 31, 2012\cite{_documentation_2013}.
 
-Although the latest release of ROS is targeted at Ubuntu, it also works on other linux distributions as well as Mac OS X, Android, and Windows. ROS programs can be developed in multiple programming languages, that are C++, Python and Lisp. More importantly, ROS supports more than 80 diffrent kinds of robots. The popular robots, that are PR2, Care-O-bot 3, iRobot Create, Aldebaran Nao are all included.
+Although the latest release of ROS is targeted at Ubuntu, it also works on other linux distributions as well as Mac OS X, Android, and Windows. ROS programs can be developed in multiple programming languages, that are C++, Python, Octave and Lisp. More importantly, ROS supports more than 80 diffrent kinds of robots. The popular robots, that are PR2, Care-O-bot 3, iRobot Create, Aldebaran Nao are all included.
 
 ROS offers plentiful modules in its repositories. It is a direct benifit for researchers to use the code from ROS rather than write the code by themselves. For example, Figure \ref{fig:tf} shows the coordinate frames in PR2, a personal service robot. The numerous moving components as well as the vision sensors have different coordinate frames. The calculation of transformation between frames is complex but essential for controlling the robot. Although the task is complex, researchers can build their programs directly based on the tf package from ROS, which reduces their workload.
 
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=.4\textwidth]{tf_pr2}
-  \caption{Coordinate frames in PR2. The tf package from ROS provides algorithms for calculating transformation between multiple frames}
+  \caption{Coordinate frames in PR2. The tf package from ROS provides algorithms for calculating transformation between multiple frames (from \cite{_documentation_2013}).}
   \label{fig:tf}
 \end{figure}
 
@@ -90,20 +70,68 @@ In later sections of this paper, we will introduce the design goals, software st
 
 \section{DESIGN GOALS}
 
+ROS is designed to solve the challenges encountered when developing large-scale service robots\cite{quigley_ros:_2009}. Its design goals are listed as follow:
+\begin{itemize}
+  \item Peer-to-peer
+  \item Tools-based
+  \item Multi-lingual
+  \item Thin
+  \item Free and Open-Source
+\end{itemize}
 
+\subsection{Peer-to-Peer}
 
+ROS is designed to work on multiple hosts and processes that are connected in a peer-to-peer topology. This design avoids the using of central server, which might cause problems when working on computers in a heterogenous network. A typical working environment of ROS is shown in Figure \ref{fig:network}.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.4\textwidth]{network}
+  \caption{A typical ROS network configuration (from \cite{quigley_ros:_2009}).}
+  \label{fig:network}
+\end{figure}
+
+\subsection{Tools-based} 
+
+ROS exploits a large number of light tools to manage the building, debugging and monitoring of the programs. ROS systems, which are complex combinations of different components, need these tools to make ROS easy to use for developers.
+
+\subsection{Multi-lingual}
+
+ROS currently supports four programming languages: C++, Python, Octave and Lisp. This adaptation of mulitple languages meets the different language preference of programmers. Using the preferred language will large shorten the programming time and make debuggin easy.
+
+\subsection{Thin}
+
+While excluding standalone libraries, the core functionality of ROS is considerably thin. Most standalone libraries including those fore drivers are independent to ROS. The design of the framework shows capability to adapt code from a number of other open-source projects. For example, ROS re-uses code for the drivers, navigation system, and simulators from the Player project, vision algorithms from OpenCV, and so on. Ease for unit testing is also an benifit for thin design.
+
+\subsection{Free and Open-Source}
+
+ROS is a fully open platform and distributed under BSD license. It is escpecially important for researchers in robotics to colaborate, as the hardwares and functions are highly complex. ROS offers the platform for researchers to share their implementations of robotics applications.
 
 \section{SOFTWARE STRUCTURE}
 
-\textit{ROS Computation Graph}
+\subsection{ROS Computation Graph}
+The ROS runtime "graph" is a peer-to-peer network of processes using the ROS communication infrastructure.
 
-\begin{itemize}
-  \item The ROS runtime "graph" is a peer-to-peer network of processes using the ROS communication infrastructure.
-\end{itemize}
-\begin{center}
-  \includegraphics[width=\textwidth]{comp_graph}
-\end{center}
+\begin{figure}[htpb]
+  \centering
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+                     thick,main node/.style={ellipse,draw,font=\ttfamily\small}]
 
+  \node[main node] (1) {/gscam};
+  \node[main node] (2) [below left of=1] {/object\_detect};
+  \node[main node] (3) [below right of=1] {/image\_view};
+  \node[main node] (4) [below of=3] {/rosout};
+  \node[main node] (5) [below of=2] {/grasp};
+
+  \path[every node/.style={font=\ttfamily\small}]
+   (1) edge node {/image} (2)
+       edge node {/image} (3)
+   (2) edge node {/rosout} (4)
+       edge node {/pos} (5)
+   (3) edge node {/rosout} (4);
+  \end{tikzpicture}
+  \caption{Peer-to-peer computation graph under ROS framework.}
+  \label{fig:framework}
+\end{figure}
 
 
 
