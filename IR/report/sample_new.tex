@@ -75,18 +75,26 @@ ROS was started from 2007, and now it is widely used in research and industry of
 
 Although the latest release of ROS is targeted at Ubuntu, it also works on other linux distributions as well as Mac OS X, Android, and Windows. ROS programs can be developed in multiple programming languages, that are C++, Python and Lisp. More importantly, ROS supports more than 80 diffrent kinds of robots. The popular robots, that are PR2, Care-O-bot 3, iRobot Create, Aldebaran Nao are all included.
 
+ROS offers plentiful modules in its repositories. It is a direct benifit for researchers to use the code from ROS rather than write the code by themselves. For example, Figure \ref{fig:tf} shows the coordinate frames in PR2, a personal service robot. The numerous moving components as well as the vision sensors have different coordinate frames. The calculation of transformation between frames is complex but essential for controlling the robot. Although the task is complex, researchers can build their programs directly based on the tf package from ROS, which reduces their workload.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.4\textwidth]{tf_pr2}
+  \caption{Coordinate frames in PR2. The tf package from ROS provides algorithms for calculating transformation between multiple frames}
+  \label{fig:tf}
+\end{figure}
+
 Previously, there were other robotics software frameworks used in academia and industry\cite{kramer_development_2007}. Each framework was designed for some special robots or for few special tasks. Among those frameworks, Player/Stage\cite{collett_player_2005} is most similar to ROS. It is also an open-source project, and offers modules for freqently-used robotics applications. Player/Stage fits for simple, non-articulated mobile platforms. ROS, however, is better at dealing with complex mobile manipulation platforms. Furthermore, ROS offers more implementations of robotics-related algorithms.
 
 In later sections of this paper, we will introduce the design goals, software structure and the community management of ROS. 
 
-\section{Design goals}
+\section{DESIGN GOALS}
 
 
 
 
-\section{Software Structure}
+\section{SOFTWARE STRUCTURE}
 
-\textbf{Software Structure}
 \textit{ROS Computation Graph}
 
 \begin{itemize}
