@@ -4,7 +4,7 @@
 
 %\documentclass[letterpaper, 10 pt, conference]{ieeeconf} % Comment this line out
                                                           % if you need a4paper
-\documentclass[a4paper, 11pt, conference]{ieeeconf}       % Use this line for a4
+\documentclass[a4paper, 10pt, conference]{ieeeconf}       % Use this line for a4
                                                           % paper
 
 \IEEEoverridecommandlockouts                              % This command is only
@@ -19,6 +19,8 @@
 
 \usepackage{tikz}
 \usetikzlibrary{shapes, arrows}
+
+\usepackage{fancyvrb}
 
 \title{\LARGE \bf
   ROS : Robotics Operating System
@@ -109,7 +111,15 @@ ROS is a fully open platform and distributed under BSD license. It is escpeciall
 \section{SOFTWARE STRUCTURE}
 
 \subsection{ROS Computation Graph}
-The ROS runtime "graph" is a peer-to-peer network of processes using the ROS communication infrastructure.
+The ROS runtime ``graph'' is a peer-to-peer network of processes using the ROS communication infrastructure. Figure \ref{fig:framework}is a computatoin graph of a simple grasping application.
+
+As shown in the graph, the ellipses are the nodes, which performs the calculation. The node are identified by their names, which also indicates their functinality. Node \texttt{/gscam} is the program for getting images from a webcam. Node \texttt{/object\_detect} is for detecting objects from images. Node \texttt{/image\_view} is for viewing an images stream. Node \texttt{/grasp} is the program for the robot to grasp the object. Node \texttt{/rosout} displays the output info of each node.
+
+The nodes are connected via peer-to-peer links, which is called topics. In this example, there are three topics, namely \texttt{/image}, \texttt{/pos} and \texttt{/rosout}. One node can send out topic to more than one node (example is topic \texttt{/image}), and one node can also receive topics from multiple nodes (example is node \texttt{/rosout}). 
+
+The workflow of the sample system can be described as : The webcam, controlled by node \texttt{/gscam}, gets the images and sends to node \texttt{/object\_detect} and node \texttt{/image\_view} via topic \texttt{/image}. The topic \texttt{/image} contains the data of the images taking from the webcam. The images are shown to users using node \texttt{/image\_view}. At the same time, the images are also processed by node \texttt{/object\_detect}. The position of the object is found and send to topic \texttt{/pos}. The position information is later used by node \texttt{/grasp}, and the grasping is performed. During the process, all output info are displayed in the console via topic \texttt{/rosout}.
+
+The detailed communicating machanisms are discussed as follow.
 
 \begin{figure}[htpb]
   \centering
@@ -129,71 +139,57 @@ The ROS runtime "graph" is a peer-to-peer network of processes using the ROS com
        edge node {/pos} (5)
    (3) edge node {/rosout} (4);
   \end{tikzpicture}
-  \caption{Peer-to-peer computation graph under ROS framework.}
+  \caption{Peer-to-peer computation graph under ROS framework. The sample system is designed for grasping objects.}
   \label{fig:framework}
 \end{figure}
 
 
 
-\textbf{Software Structure}
-\textit{Node and Master}
+\subsection{Node and Master}
 
-\begin{itemize}
-  \item Nodes are processes that perform computation. 
-  \item ROS is designed to be modular at a fine-grained scale. Robot control system will usually comprise many nodes.
-  \item For example, one node controls a laser range-finder, one node controls the wheel motors, one node performs localization, one node performs path planning, one node provides a graphical view of the system, and so on.
-  \item Nodes get to know each other via roscore (master).
-\end{itemize}
+Nodes are independent processes that perform computation. Nodes are designed to be modular at a fine-grained scale. Robot control system will usually comprise many nodes.
 
-\begin{center}
-  \includegraphics[width=.6\textwidth]{nodes}
-\end{center}
+The use of nodes in ROS provides several benefits to the overall system. There is additional fault tolerance as crashes are isolated to individual nodes. Code complexity is reduced in comparison to monolithic systems. Implementation details are also well hidden as the nodes expose a minimal API to the rest of the graph and alternate implementations, even in other programming languages, can easily be substituted. 
 
+Nodes, which are identified by thier names, get to know each other via roscore, aka master. The master works as a name server. All running nodes register their name, address, port and other information at the master. Therefore, the information of other nodes can be acquired by inquisition to the master. Once these nodes have located each other, they communicate with each other peer-to-peer. The structure is shown in Figure \ref{fig:master}.
 
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.4\textwidth]{nodes}
+  \caption{roscore (master) provides the naming and registry service in ROS.}
+  \label{fig:master}
+\end{figure}
 
+\subsection{Message}
 
-\textbf{Software Structure}
-\textit{Message}
-
-\begin{itemize}
-  \item Nodes communicate with each other by passing messages.
-  \item A message is simply a data structure, comprising typed fields. 
-  \item Standard primitive types (integer, floating point, boolean, etc.) are supported, as are arrays of primitive types. 
-  \item Messages can include arbitrarily nested structures and arrays (much like C structs).
-\end{itemize}
-
-
-
-\textbf{Software Structure}
-\textit{Message example}
+Nodes communicate with each other by passing messages. A message is simply a data structure, comprising typed fields. Standard primitive types (integer, floating, boolean, string) are supported, as are arrays of primitive types. Messages can include arbitrarily nested structures and arrays, like C structs.  
 
 \begin{itemize}
   \item sensor\_msg/Image
 \end{itemize}
 
-Header header \\
-~  uint32 seq \\
-~  time stamp \\
-~  string frame\_id \\
-uint32 height \\
-uint32 width \\
-string encoding \\
-uint8 is\_bigendian \\
-uint32 step \\
+\begin{Verbatim}[frame=single]
+Header header 
+  uint32 seq 
+  time stamp 
+  string frame_id 
+uint32 height 
+uint32 width 
+string encoding 
+uint8 is_bigendian 
+uint32 step 
 uint8[] data
+\end{Verbatim}
+
+\subsection{Topic}
 
 
+Topic is a mechanism to send messages from a node to one or more nodes.
+   Follows a publisher-subscriber design pattern.
+   Publisher is the node which send messages to the topic.
+   Subscribers are the nodes which get called whenever a message is published.
+   Example : Camera publishing images.
 
-\textbf{Software Structure}
-\textit{Topic}
-
-\begin{itemize}
-  \item Topic is a mechanism to send messages from a node to one or more nodes.
-  \item Follows a publisher-subscriber design pattern.
-  \item Publisher is the node which send messages to the topic.
-  \item Subscribers are the nodes which get called whenever a message is published.
-  \item Example : Camera publishing images.
-\end{itemize}
 
 \begin{center}
   \includegraphics[width=.6\textwidth]{topic}
@@ -202,15 +198,14 @@ uint8[] data
 
 
 
-\textbf{Software Structure}
-\textit{Service}
+\subsection{Service}
 
-\begin{itemize}
-  \item Service is a mechanism for a node to send a request to another node and receive a response in return.
-  \item Follows a request-response design pattern.
-  \item A service is called with a request message, and in return, a response message is returned.
-  \item Example : Request the camera to tilt.
-\end{itemize}
+
+   Service is a mechanism for a node to send a request to another node and receive a response in return.
+   Follows a request-response design pattern.
+   A service is called with a request message, and in return, a response message is returned.
+   Example : Request the camera to tilt.
+
 
 \begin{center}
   \includegraphics[width=.6\textwidth]{service}
@@ -218,64 +213,61 @@ uint8[] data
 
 
 
-\textbf{Software Structure}
-\textit{File system Hierarchy}
+\subsection{File system Hierarchy}
 
-\begin{itemize}
-  \item Release : collection of stacks and packages.
-  \begin{itemize}
-    \item Fuerte
-  \end{itemize}
-  \item Stacks : a full application suite.
-  \begin{itemize}
-    \item geometry
-  \end{itemize}
-  \item Package : software to solve a specific task.
-  \begin{itemize}
-    \item tf
-  \end{itemize}
-  \item Node : an executable.
-  \begin{itemize}
-    \item tf\_echo
-  \end{itemize}
-\end{itemize}
+
+   Release : collection of stacks and packages.
+  
+     Fuerte
+  
+   Stacks : a full application suite.
+  
+     geometry
+  
+   Package : software to solve a specific task.
+  
+     tf
+  
+   Node : an executable.
+  
+     tf\_echo
+  
+
 
 
 
 \section{Community Management}
 
-\textbf{Community}
-\textit{Software Distribution}
+\subsection{Software Distribution}
 
-\begin{itemize}
-  \item ROS code is maintained in a decentralized federation of repositories.
-  \begin{itemize}
-    \item The core repository : ros-pkg;
-    \item 94 repositories in other institutions;
-    \item 14 personal repositories.
-  \end{itemize}
-  \item Easy to contribute.
-  \begin{itemize}
-    \item Host their code (and documents) in their own repository.
-    \item SourceForge.net, Google Code and GitHub.
-    \item Register at ros.org.
-  \end{itemize}
-  \item Easy to search software.
-  \begin{itemize}
-    \item Search across the federation of repositories is possible.
-    \item ros.org keeps tracks of updates of all repositories and generates index.
-    \item Documentation and tutorials are also updated automatically.
-  \end{itemize}
-\end{itemize}
+
+   ROS code is maintained in a decentralized federation of repositories.
+  
+     The core repository : ros-pkg;
+     94 repositories in other institutions;
+     14 personal repositories.
+  
+   Easy to contribute.
+  
+     Host their code (and documents) in their own repository.
+     SourceForge.net, Google Code and GitHub.
+     Register at ros.org.
+  
+   Easy to search software.
+  
+     Search across the federation of repositories is possible.
+     ros.org keeps tracks of updates of all repositories and generates index.
+     Documentation and tutorials are also updated automatically.
+  
 
 
 
 
-\textbf{Community}
 
-\begin{itemize}
-  \item ROS Answers.
-\end{itemize}
+
+
+   ROS Answers.
+
 \begin{center}
   \includegraphics[width=\textwidth]{ros_answers}
 \end{center}
@@ -283,17 +275,13 @@ uint8[] data
 
 \section{Conclusion}
 
-\textbf{Conclusion}
 
-\begin{itemize}
-  \item ROS defines a standard for the communicate mechanisms and protocols between robot components.
-  \item ROS provides libraries for various functions.
-  \item ROS contains utility tools to help development.
-  \item ROS promotes code sharing and reuse.
-\end{itemize}
 
-\textbf{Questions?}
-Thanks!
+   ROS defines a standard for the communicate mechanisms and protocols between robot components.
+   ROS provides libraries for various functions.
+   ROS contains utility tools to help development.
+   ROS promotes code sharing and reuse.
+
 
 \bibliography{ref}
 \bibliographystyle{plain}  
