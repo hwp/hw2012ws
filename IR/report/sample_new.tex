@@ -162,12 +162,14 @@ Nodes, which are identified by thier names, get to know each other via roscore, 
 
 \subsection{Message}
 
-Nodes communicate with each other by passing messages. A message is simply a data structure, comprising typed fields. Standard primitive types (integer, floating, boolean, string) are supported, as are arrays of primitive types. Messages can include arbitrarily nested structures and arrays, like C structs.  
+Nodes communicate with each other by passing messages. Nodes receive and pass different types of data, such as a 2-D position, an image or a string message. A message work as a protocol which speicify how the structure of the tranmitted data are.
 
-\begin{itemize}
-  \item sensor\_msg/Image
-\end{itemize}
+A message is simply a data structure, comprising typed fields. Standard primitive types (integer, floating, boolean, string) are supported, as are arrays of primitive types. Messages can include arbitrarily nested structures and arrays, like C structs.
 
+Data structures of messages are specified in \texttt{.msg} files. Figure \ref{fig:message} shows the \texttt{.msg} file of built-in message \texttt{sensor\_msg/Image}. The message specifies data of a image.
+
+\begin{figure}[htpb]
+  \centering
 \begin{Verbatim}[frame=single]
 Header header 
   uint32 seq 
@@ -180,6 +182,9 @@ uint8 is_bigendian
 uint32 step 
 uint8[] data
 \end{Verbatim}
+  \caption{Message specification of a image. The message name is \texttt{sensor\_msg/Image}.}
+  \label{fig:message}
+\end{figure}
 
 \subsection{Topic}
 
