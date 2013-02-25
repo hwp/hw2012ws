@@ -196,7 +196,7 @@ A topic can be viewed as a bus that connects nodes, which send out or receives t
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.48\textwidth]{topic}
-  \caption{Topic can have multiple publishers and subscribers.}
+  \caption{A topic can have multiple publishers and subscribers.}
   \label{fig:topic}
 \end{figure}
 
@@ -206,40 +206,44 @@ Example of topics are discussed prviously (see Figure \ref{fig:framework}). The 
 
 \subsection{Service}
 
+Service is another type of communication between nodes. Its mechanism is a node sending a request to another node and receiving a response in return. It follows a request-response design pattern. A service is called with a request message, and a response message is returned. Figure \ref{fig:service} shows the relations bewteen nodes communicating with service.
 
-   Service is a mechanism for a node to send a request to another node and receive a response in return.
-   Follows a request-response design pattern.
-   A service is called with a request message, and in return, a response message is returned.
-   Example : Request the camera to tilt.
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.48\textwidth]{service}
+  \caption{A service call consists of a request and a respond.}
+  \label{fig:service}
+\end{figure}
 
+A \texttt{.srv} file defines a service type. It comprises simple two parts : a request message type and a response message type. Figure \ref{fig:srvfile} is an example of a \texttt{.srv} file definition of a service, which adds two input integers (a and b) and returns the sum. The lines above the ``\texttt{---}'' are the definition of the request message type. And below it, is the definition of the response message type. Both parts can be empty (corresponding to void input and void return).
 
-\begin{center}
-  \includegraphics[width=.6\textwidth]{service}
-\end{center}
+\begin{figure}[htpb]
+  \centering
+\begin{Verbatim}[frame=single]
+int64 a
+int64 b
+---
+int64 sum
+\end{Verbatim}
+  \caption{A sample \texttt{.srv} file defines the service of adding two integers.}
+  \label{fig:srvfile}
+\end{figure}
 
-
+% Comparision
 
 \subsection{File system Hierarchy}
 
-
    Release : collection of stacks and packages.
-  
      Fuerte
   
    Stacks : a full application suite.
-  
      geometry
   
    Package : software to solve a specific task.
-  
      tf
   
    Node : an executable.
-  
      tf\_echo
-  
-
-
 
 
 \section{Community Management}
