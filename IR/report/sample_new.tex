@@ -61,7 +61,7 @@ ROS offers plentiful modules in its repositories. It is a direct benifit for res
 
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=.4\textwidth]{tf_pr2}
+  \includegraphics[width=.48\textwidth]{tf_pr2}
   \caption{Coordinate frames in PR2. The tf package from ROS provides algorithms for calculating transformation between multiple frames (from \cite{_documentation_2013}).}
   \label{fig:tf}
 \end{figure}
@@ -87,7 +87,7 @@ ROS is designed to work on multiple hosts and processes that are connected in a 
 
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=0.4\textwidth]{network}
+  \includegraphics[width=0.48\textwidth]{network}
   \caption{A typical ROS network configuration (from \cite{quigley_ros:_2009}).}
   \label{fig:network}
 \end{figure}
@@ -115,7 +115,7 @@ The ROS runtime ``graph'' is a peer-to-peer network of processes using the ROS c
 
 As shown in the graph, the ellipses are the nodes, which performs the calculation. The node are identified by their names, which also indicates their functinality. Node \texttt{/gscam} is the program for getting images from a webcam. Node \texttt{/object\_detect} is for detecting objects from images. Node \texttt{/image\_view} is for viewing an images stream. Node \texttt{/grasp} is the program for the robot to grasp the object. Node \texttt{/rosout} displays the output info of each node.
 
-The nodes are connected via peer-to-peer links, which is called topics. In this example, there are three topics, namely \texttt{/image}, \texttt{/pos} and \texttt{/rosout}. One node can send out topic to more than one node (example is topic \texttt{/image}), and one node can also receive topics from multiple nodes (example is node \texttt{/rosout}). 
+The nodes are connected via peer-to-peer links, either follow TCP or UDP protocol. The form of the connection can be two types, topic or service. In this example, there are three topics, namely \texttt{/image}, \texttt{/pos} and \texttt{/rosout}. One node can send out topic to more than one node (example is topic \texttt{/image}), and one node can also receive topics from multiple nodes (example is node \texttt{/rosout}). 
 
 The workflow of the sample system can be described as : The webcam, controlled by node \texttt{/gscam}, gets the images and sends to node \texttt{/object\_detect} and node \texttt{/image\_view} via topic \texttt{/image}. The topic \texttt{/image} contains the data of the images taking from the webcam. The images are shown to users using node \texttt{/image\_view}. At the same time, the images are also processed by node \texttt{/object\_detect}. The position of the object is found and send to topic \texttt{/pos}. The position information is later used by node \texttt{/grasp}, and the grasping is performed. During the process, all output info are displayed in the console via topic \texttt{/rosout}.
 
@@ -188,20 +188,21 @@ uint8[] data
 
 \subsection{Topic}
 
+Topic is a mechanism for sending messages from nodes to nodes. It follows a publisher-subscriber design pattern. Publisher is the node which send messages to the topic. Subscribers are the nodes which get called whenever a message is published. The connection is unidirectional.
 
-Topic is a mechanism to send messages from a node to one or more nodes.
-   Follows a publisher-subscriber design pattern.
-   Publisher is the node which send messages to the topic.
-   Subscribers are the nodes which get called whenever a message is published.
-   Example : Camera publishing images.
+A topic can be viewed as a bus that connects nodes, which send out or receives the same type of data. Multiple nodes can connect to one topic simutaneously as publishers. Similarly, any node, which is interested in getting the data (messages), can connect as subscriber. Figure 
+\ref{fig:topic} illustrates the concept of connecting nodes using topic.
 
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.48\textwidth]{topic}
+  \caption{Topic can have multiple publishers and subscribers.}
+  \label{fig:topic}
+\end{figure}
 
-\begin{center}
-  \includegraphics[width=.6\textwidth]{topic}
-\end{center}
+Each topic has a strict type defined by a message type, namely a \texttt{.msg} file. As like nodes, topics are identified by their names and registered at the master. Upon a node subscribing a topic, the MD5 codes of the \texttt{.msg} files are checked for consistency of the message types.
 
-
-
+Example of topics are discussed prviously (see Figure \ref{fig:framework}). The topic \texttt{/image} contains stream of \texttt{sensor\_msg/Image} messages, which are data of captured images from the webcam. It has one publisher, \texttt{/gscam}, and two subscribers, \texttt{/object\_detect} and \texttt{/image\_view}. The topic \texttt{/rosout}, on the other hand, is an example shows that one topic can have multiple publishers.
 
 \subsection{Service}
 
@@ -263,12 +264,6 @@ Topic is a mechanism to send messages from a node to one or more nodes.
      Search across the federation of repositories is possible.
      ros.org keeps tracks of updates of all repositories and generates index.
      Documentation and tutorials are also updated automatically.
-  
-
-
-
-
-
 
 
    ROS Answers.
@@ -279,8 +274,6 @@ Topic is a mechanism to send messages from a node to one or more nodes.
 
 
 \section{Conclusion}
-
-
 
    ROS defines a standard for the communicate mechanisms and protocols between robot components.
    ROS provides libraries for various functions.
