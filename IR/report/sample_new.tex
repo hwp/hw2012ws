@@ -229,9 +229,7 @@ int64 sum
   \label{fig:srvfile}
 \end{figure}
 
-Services differ from topics in several aspects. First, connections of services are bi-directional, while those of topics are uni-directional. Services can be requested with input parameters. On the contrary, topics do not have the input part. Publishers of topics send out messages without knowing the subscribers. 
-
-
+  Services differ from topics in several aspects. The main difference is that connections of services are bi-directional, while those of topics are uni-directional. Services can be requested with input parameters. On the contrary, topics do not have the input part. Publishers of topics send out messages without knowing the subscribers. Additionally, topics allow multiple nodes communicating at the same time, while services are between two nodes. And, the servers in services only process upon requests. However, the publishers in topics work throughout the runtime (processing may be invoked by clock). Users have the chance to decide which method to use, in order to fit their situation.
 
 \subsection{File system Hierarchy}
 
