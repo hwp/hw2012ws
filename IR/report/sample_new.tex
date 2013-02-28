@@ -18,7 +18,16 @@
 \graphicspath{{../data/}}
 
 \usepackage{tikz}
-\usetikzlibrary{shapes, arrows}
+\usetikzlibrary{shapes, arrows, positioning, shadows, trees}
+
+\tikzset{
+  basic/.style  = {draw, text width=2cm, drop shadow, rectangle},
+  root/.style   = {basic, rounded corners=2pt, thin, align=center,
+                   fill=green!30},
+  level 2/.style = {basic, rounded corners=6pt, thin,align=center, fill=green!60,
+                    text width=25mm},
+  level 3/.style = {basic, thin, align=left, fill=pink!60, text width=20mm}
+}
 
 \usepackage{fancyvrb}
 \usepackage{url}
@@ -234,7 +243,51 @@ int64 sum
 
 \subsection{File System Hierarchy}
 
-ROS system on disk consists of a hierarchical filesystem. The filesystem concepts (from large to small) are stacks, packages, nodes, messages and services.
+ROS system on disk consists of a hierarchical filesystem. The filesystem concepts (from large to small) are stacks, packages, nodes, messages and services. Figure \ref{fig:filesystem} shows the relation between thess concepts.
+
+\begin{figure}[htbp]
+  \centering
+\begin{tikzpicture}[
+  level 1/.style={sibling distance=30mm},
+  edge from parent/.style={->,draw},
+  >=latex]
+
+% root of the the initial tree, level 1
+\node[root] {ROS Filesystem}
+% The first level, as children of the initial tree
+  child {node[level 2] (c1) {Stack}}
+  child {node[level 2] (c2) {Stack}}
+  child {node[level 2] (c3) {Stack}};
+
+% The second level, relatively positioned nodes
+\begin{scope}[every node/.style={level 3}]
+\node [below of = c1, xshift=15pt] (c11) {Package};
+\node [below of = c11] (c12) {Package};
+\node [below of = c12] (c13) {Package};
+
+\node [below of = c2, xshift=15pt] (c21) {Package};
+\node [below of = c21] (c22) {Package};
+\node [below of = c22] (c23) {Package};
+\node [below of = c23] (c24) {Package};
+\node [below of = c24] (c25) {Package};
+
+\node [below of = c3, xshift=15pt] (c31) {Package};
+\node [below of = c31] (c32) {Package};
+\end{scope}
+
+% lines from each level 1 node to every one of its "children"
+\foreach \value in {1,2,3}
+  \draw[->] (c1.195) |- (c1\value.west);
+
+\foreach \value in {1,...,5}
+  \draw[->] (c2.195) |- (c2\value.west);
+
+\foreach \value in {1,2}
+  \draw[->] (c3.195) |- (c3\value.west);
+\end{tikzpicture}
+  \caption{ROS filesystem hierachy.}
+  \label{fig:filesystem}
+\end{figure}
 
 A stack is a full application suite, comprised of a collection of packages. For example, \texttt{geometry} is a stack holding libraries for geometric and mathematic computing. This stacks contains packages \texttt{tf}, \texttt{tf\_conversions}, \texttt{kdl\_conversions}, \texttt{angles} and \texttt{eigen\_conversions}.
 
