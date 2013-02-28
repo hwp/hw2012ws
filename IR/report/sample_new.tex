@@ -54,11 +54,11 @@ Software system for robots is difficult to develop because of the diversity of h
 
 Robot Operating System (ROS) is a project that promotes the code reuse in robotics research\cite{quigley_ros:_2009}. ROS is an open-source, meta-operating system for robots. It provides the services including hardware abstraction, low-level device control, implementation of commonly-used functionality, message-passing between processes, and package management. It also provides tools and libraries for obtaining, building, writing, and running code across multiple computers. Last but not least, ROS is supported by a open-source community (ROS.org), which is a platform for researchers to use for collaborating.
 
-ROS was started from 2007, and now it is widely used in research and industry of robotics. Originally, it was under the name switchyard by the Stanford Artificial Intelligence Laboratory in support of the Stanford AI Robot (STAIR) project. From 2008, its development continues primarily at Willow Garage, with more than twenty institutions collaborating in a federated development model. ROS has been released several times under different distribution names. The latest stable distribution release is ``ROS Groovy Galapagos'' on December 31, 2012\cite{_documentation_2013}.
+ROS was started from 2007, and now it is widely used in research and industry of robotics. Originally, it was under the name Switchyard by the Stanford Artificial Intelligence Laboratory in support of the Stanford AI Robot (STAIR) project. From 2008, its development continues primarily at Willow Garage, with more than twenty institutions collaborating in a federated development model. ROS has been released several times under different distribution names. The latest stable distribution release is ``ROS Groovy Galapagos'' on December 31, 2012\cite{_documentation_2013}.
 
-Although the latest release of ROS is targeted at Ubuntu, it also works on other linux distributions as well as Mac OS X, Android, and Windows. ROS programs can be developed in multiple programming languages, that are C++, Python, Octave and Lisp. More importantly, ROS supports more than 80 diffrent kinds of robots. The popular robots, that are PR2, Care-O-bot 3, iRobot Create, Aldebaran Nao are all included.
+Although the latest release of ROS is targeted at Ubuntu, it also works on other Linux distributions as well as Mac OS X, Android, and Windows. ROS programs can be developed in multiple programming languages, that are C++, Python, Octave and Lisp. More importantly, ROS supports more than 80 different kinds of robots. The popular robots, that are PR2, Care-O-bot 3, iRobot Create, Aldebaran Nao are all included.
 
-ROS offers plentiful modules in its repositories. It is a direct benifit for researchers to use the code from ROS rather than write the code by themselves. For example, Figure \ref{fig:tf} shows the coordinate frames in PR2, a personal service robot. The numerous moving components as well as the vision sensors have different coordinate frames. The calculation of transformation between frames is complex but essential for controlling the robot. Although the task is complex, researchers can build their programs directly based on the tf package from ROS, which reduces their workload.
+ROS offers plentiful modules in its repositories. It is a direct benefit for researchers to use the code from ROS rather than write the code by themselves. For example, Figure \ref{fig:tf} shows the coordinate frames in PR2, a personal service robot. The numerous moving components as well as the vision sensors have different coordinate frames. The calculation of transformation between frames is complex but essential for controlling the robot. Although the task is complex, researchers can build their programs directly based on the tf package from ROS, which reduces their workload.
 
 \begin{figure}[htpb]
   \centering
@@ -67,7 +67,7 @@ ROS offers plentiful modules in its repositories. It is a direct benifit for res
   \label{fig:tf}
 \end{figure}
 
-Previously, there were other robotics software frameworks used in academia and industry\cite{kramer_development_2007}. Each framework was designed for some special robots or for few special tasks. Among those frameworks, Player/Stage\cite{collett_player_2005} is most similar to ROS. It is also an open-source project, and offers modules for freqently-used robotics applications. Player/Stage fits for simple, non-articulated mobile platforms. ROS, however, is better at dealing with complex mobile manipulation platforms. Furthermore, ROS offers more implementations of robotics-related algorithms.
+Previously, there were other robotics software frameworks used in academia and industry\cite{kramer_development_2007}. Each framework was designed for some special robots or for few special tasks. Among those frameworks, Player/Stage\cite{collett_player_2005} is most similar to ROS. It is also an open-source project, and offers modules for frequently-used robotics applications. Player/Stage fits for simple, non-articulated mobile platforms. ROS, however, is better at dealing with complex mobile manipulation platforms. Furthermore, ROS offers more implementations of robotics-related algorithms.
 
 In later sections of this paper, we will introduce the design goals, software structure and the community management of ROS. 
 
@@ -84,7 +84,7 @@ ROS is designed to solve the challenges encountered when developing large-scale 
 
 \subsection{Peer-to-Peer}
 
-ROS is designed to work on multiple hosts and processes that are connected in a peer-to-peer topology. This design avoids the using of central server, which might cause problems when working on computers in a heterogenous network. A typical working environment of ROS is shown in Figure \ref{fig:network}.
+ROS is designed to work on multiple hosts and processes that are connected in a peer-to-peer topology. This design avoids the using of central server, which might cause problems when working on computers in a heterogeneous network. A typical working environment of ROS is shown in Figure \ref{fig:network}.
 
 \begin{figure}[htpb]
   \centering
@@ -99,28 +99,28 @@ ROS exploits a large number of light tools to manage the building, debugging and
 
 \subsection{Multi-lingual}
 
-ROS currently supports four programming languages: C++, Python, Octave and Lisp. This adaptation of mulitple languages meets the different language preference of programmers. Using the preferred language will large shorten the programming time and make debuggin easy.
+ROS currently supports four programming languages: C++, Python, Octave and Lisp. This adaptation of multiple languages meets the different language preference of programmers. Using the preferred language will large shorten the programming time and make debugging easy.
 
 \subsection{Thin}
 
-While excluding standalone libraries, the core functionality of ROS is considerably thin. Most standalone libraries including those fore drivers are independent to ROS. The design of the framework shows capability to adapt code from a number of other open-source projects. For example, ROS re-uses code for the drivers, navigation system, and simulators from the Player project, vision algorithms from OpenCV, and so on. Ease for unit testing is also an benifit for thin design.
+While excluding standalone libraries, the core functionality of ROS is considerably thin. Most standalone libraries including those fore drivers are independent to ROS. The design of the framework shows capability to adapt code from a number of other open-source projects. For example, ROS re-uses code for the drivers, navigation system, and simulators from the Player project, vision algorithms from OpenCV, and so on. Ease for unit testing is also an benefit for thin design.
 
 \subsection{Free and Open-Source}
 
-ROS is a fully open platform and distributed under BSD license. It is escpecially important for researchers in robotics to colaborate, as the hardwares and functions are highly complex. ROS offers the platform for researchers to share their implementations of robotics applications.
+ROS is a fully open platform and distributed under BSD license. It is especially important for researchers in robotics to collaborate, as the hardware and functions are highly complex. ROS offers the platform for researchers to share their implementations of robotics applications.
 
 \section{SOFTWARE STRUCTURE}
 
 \subsection{ROS Computation Graph}
-The ROS runtime ``graph'' is a peer-to-peer network of processes using the ROS communication infrastructure. Figure \ref{fig:framework}is a computatoin graph of a simple grasping application.
+The ROS runtime ``graph'' is a peer-to-peer network of processes using the ROS communication infrastructure. Figure \ref{fig:framework}is a computation graph of a simple grasping application.
 
-As shown in the graph, the ellipses are the nodes, which performs the calculation. The node are identified by their names, which also indicates their functinality. Node \texttt{/gscam} is the program for getting images from a webcam. Node \texttt{/object\_detect} is for detecting objects from images. Node \texttt{/image\_view} is for viewing an images stream. Node \texttt{/grasp} is the program for the robot to grasp the object. Node \texttt{/rosout} displays the output info of each node.
+As shown in the graph, the ellipses are the nodes, which performs the calculation. The node are identified by their names, which also indicates their functionality. Node \texttt{/gscam} is the program for getting images from a webcam. Node \texttt{/object\_detect} is for detecting objects from images. Node \texttt{/image\_view} is for viewing an images stream. Node \texttt{/grasp} is the program for the robot to grasp the object. Node \texttt{/rosout} displays the output info of each node.
 
 The nodes are connected via peer-to-peer links, either follow TCP or UDP protocol. The form of the connection can be two types, topic or service. In this example, there are three topics, namely \texttt{/image}, \texttt{/pos} and \texttt{/rosout}. One node can send out topic to more than one node (example is topic \texttt{/image}), and one node can also receive topics from multiple nodes (example is node \texttt{/rosout}). 
 
-The workflow of the sample system can be described as : The webcam, controlled by node \texttt{/gscam}, gets the images and sends to node \texttt{/object\_detect} and node \texttt{/image\_view} via topic \texttt{/image}. The topic \texttt{/image} contains the data of the images taking from the webcam. The images are shown to users using node \texttt{/image\_view}. At the same time, the images are also processed by node \texttt{/object\_detect}. The position of the object is found and send to topic \texttt{/pos}. The position information is later used by node \texttt{/grasp}, and the grasping is performed. During the process, all output info are displayed in the console via topic \texttt{/rosout}.
+The work flow of the sample system can be described as : The webcam, controlled by node \texttt{/gscam}, gets the images and sends to node \texttt{/object\_detect} and node \texttt{/image\_view} via topic \texttt{/image}. The topic \texttt{/image} contains the data of the images taking from the webcam. The images are shown to users using node \texttt{/image\_view}. At the same time, the images are also processed by node \texttt{/object\_detect}. The position of the object is found and send to topic \texttt{/pos}. The position information is later used by node \texttt{/grasp}, and the grasping is performed. During the process, all output info are displayed in the console via topic \texttt{/rosout}.
 
-The detailed communicating machanisms are discussed as follow.
+The detailed communicating mechanisms are discussed as follow.
 
 \begin{figure}[htpb]
   \centering
@@ -152,7 +152,7 @@ Nodes are independent processes that perform computation. Nodes are designed to 
 
 The use of nodes in ROS provides several benefits to the overall system. There is additional fault tolerance as crashes are isolated to individual nodes. Code complexity is reduced in comparison to monolithic systems. Implementation details are also well hidden as the nodes expose a minimal API to the rest of the graph and alternate implementations, even in other programming languages, can easily be substituted. 
 
-Nodes, which are identified by thier names, get to know each other via roscore, aka master. The master works as a name server. All running nodes register their name, address, port and other information at the master. Therefore, the information of other nodes can be acquired by inquisition to the master. Once these nodes have located each other, they communicate with each other peer-to-peer. The structure is shown in Figure \ref{fig:master}.
+Nodes, which are identified by their names, get to know each other via roscore, aka master. The master works as a name server. All running nodes register their name, address, port and other information at the master. Therefore, the information of other nodes can be acquired by inquisition to the master. Once these nodes have located each other, they communicate with each other peer-to-peer. The structure is shown in Figure \ref{fig:master}.
 
 \begin{figure}[htpb]
   \centering
@@ -163,7 +163,7 @@ Nodes, which are identified by thier names, get to know each other via roscore, 
 
 \subsection{Message}
 
-Nodes communicate with each other by passing messages. Nodes receive and pass different types of data, such as a 2-D position, an image or a string message. A message work as a protocol which speicify how the structure of the tranmitted data are.
+Nodes communicate with each other by passing messages. Nodes receive and pass different types of data, such as a 2-D position, an image or a string message. A message work as a protocol which specify how the structure of the transmitted data are.
 
 A message is simply a data structure, comprising typed fields. Standard primitive types (integer, floating, boolean, string) are supported, as are arrays of primitive types. Messages can include arbitrarily nested structures and arrays, like C structs.
 
@@ -191,7 +191,7 @@ uint8[] data
 
 Topic is a mechanism for sending messages from nodes to nodes. It follows a publisher-subscriber design pattern. Publisher is the node which send messages to the topic. Subscribers are the nodes which get called whenever a message is published. The connection is unidirectional.
 
-A topic can be viewed as a bus that connects nodes, which send out or receives the same type of data. Multiple nodes can connect to one topic simutaneously as publishers. Similarly, any node, which is interested in getting the data (messages), can connect as subscriber. Figure 
+A topic can be viewed as a bus that connects nodes, which send out or receives the same type of data. Multiple nodes can connect to one topic simultaneously as publishers. Similarly, any node, which is interested in getting the data (messages), can connect as subscriber. Figure 
 \ref{fig:topic} illustrates the concept of connecting nodes using topic.
 
 \begin{figure}[htpb]
@@ -203,11 +203,11 @@ A topic can be viewed as a bus that connects nodes, which send out or receives t
 
 Each topic has a strict type defined by a message type, namely a \texttt{.msg} file. As like nodes, topics are identified by their names and registered at the master. Upon a node subscribing a topic, the MD5 codes of the \texttt{.msg} files are checked for consistency of the message types.
 
-Example of topics are discussed prviously (see Figure \ref{fig:framework}). The topic \texttt{/image} contains stream of \texttt{sensor\_msg/Image} messages, which are data of captured images from the webcam. It has one publisher, \texttt{/gscam}, and two subscribers, \texttt{/object\_detect} and \texttt{/image\_view}. The topic \texttt{/rosout}, on the other hand, is an example shows that one topic can have multiple publishers.
+Example of topics are discussed previously (see Figure \ref{fig:framework}). The topic \texttt{/image} contains stream of \texttt{sensor\_msg/Image} messages, which are data of captured images from the webcam. It has one publisher, \texttt{/gscam}, and two subscribers, \texttt{/object\_detect} and \texttt{/image\_view}. The topic \texttt{/rosout}, on the other hand, is an example shows that one topic can have multiple publishers.
 
 \subsection{Service}
 
-Service is another type of communication between nodes. Its mechanism is a node sending a request to another node and receiving a response in return. It follows a request-response design pattern. A service is called with a request message, and a response message is returned. Figure \ref{fig:service} shows the relations bewteen nodes communicating with service.
+Service is another type of communication between nodes. Its mechanism is a node sending a request to another node and receiving a response in return. It follows a request-response design pattern. A service is called with a request message, and a response message is returned. Figure \ref{fig:service} shows the relations between nodes communicating with service.
 
 \begin{figure}[htpb]
   \centering
@@ -240,7 +240,7 @@ A stack is a full application suite, comprised of a collection of packages. For 
 
 A package is a software that solves a specific task. A package may contains several nodes. For example, the package \texttt{tf} in stack \texttt{geometry} is the package that let users keep track of multiple coordinate frames over time (in Figure \ref{fig:tf}).
   
-A node, as introduced previously, is an executable in the filesystem. At runtime, a node is an independent process in the whole compuatation graph.
+A node, as introduced previously, is an executable in the filesystem. At runtime, a node is an independent process in the whole computation graph.
 
 Messages (types) and services (types), which are defined by \texttt{.msg} and \texttt{.srv} files, are the specification of interfaces.
 
@@ -261,7 +261,7 @@ The resources for different groups exchanging their codes and knowledge include 
 \end{itemize}
 
 \subsection{ROS.org}
-ROS.org is the main website for hosting ROS-related software. ROS.org provides documentation and tutorial of how to use ROS. It also offers a list of ROS-related softwares and corresponding documentations. 
+ROS.org is the main website for hosting ROS-related software. ROS.org provides documentation and tutorial of how to use ROS. It also offers a list of ROS-related software and corresponding documentations. 
 
 \subsection{Repositories}
 
@@ -272,12 +272,12 @@ ROS.org is the main website for hosting ROS-related software. ROS.org provides d
   \label{fig:repos}
 \end{figure*}
 
-ROS code is maintained in a decentralized federation of repositories. The core repository, which holds the minimum funcionality of the system, is \texttt{ros-pkg}. Besides the core repository, there are many other repositories hosted by other entities. Among all repositories, 94 are hosted other institutions and 14 are personal. Figure \ref{fig:repos} shows the geological distribution of all repositories\footnote{Extracted from \url{http://maps.google.com/maps/ms?ie=UTF\&msa=0\&msid=209668390659853657363.00049c608b78bc7779683}}.
+ROS code is maintained in a decentralized federation of repositories. The core repository, which holds the minimum functionality of the system, is \texttt{ros-pkg}. Besides the core repository, there are many other repositories hosted by other entities. Among all repositories, 94 are hosted other institutions and 14 are personal. Figure \ref{fig:repos} shows the geological distribution of all repositories\footnote{Extracted from \url{http://maps.google.com/maps/ms?ie=UTF\&msa=0\&msid=209668390659853657363.00049c608b78bc7779683}}.
 
-ROS not only allows contributers to host their code (and documents) in their own repository, but also accepts different forms of version control. The overhead of maintaining a repository is minimized by the use of community-hosting sites such as SourceForge.net, Google
+ROS not only allows contributors to host their code (and documents) in their own repository, but also accepts different forms of version control. The overhead of maintaining a repository is minimized by the use of community-hosting sites such as SourceForge.net, Google
 Code, and GitHub.
 
-Contributors can register their repositories and softwares in ROS.org, which makes searching across the federation of repositories possible. ROS.org keeps tracks of updates of all repositories and generates index. Documentation and tutorials are also updated automatically.
+Contributors can register their repositories and software in ROS.org, which makes searching across the federation of repositories possible. ROS.org keeps tracks of updates of all repositories and generates index. Documentation and tutorials are also updated automatically.
 
 
 \subsection{Other Resources}
