@@ -21,7 +21,7 @@
 \usetikzlibrary{shapes, arrows}
 
 \usepackage{fancyvrb}
-\usepackage{hyperref}
+\usepackage{url}
 
 \title{\LARGE \bf
   ROS : Robotics Operating System
@@ -246,33 +246,44 @@ Messages (types) and services (types), which are defined by \texttt{.msg} and \t
 
 \section{COMMUNITY MANAGEMENT}
 
-\subsection{Software Distribution}
+The quote below states the ``Free and Open-source'' goal of ROS\cite{cousins_sharing_2010} :
+\begin{quote}
+  Robot operating system (ROS) is designed to promote code sharing and enable the development of open-source robotics commons. Sharing code will help the robotics community to progress faster by letting the researchers in the community replicate and extend the results of other research groups. 
+\end{quote}
 
-   ROS code is maintained in a decentralized federation of repositories.
-  
-     The core repository : ros-pkg;
-     94 repositories in other institutions;
-     14 personal repositories.
-  
-   Easy to contribute.
-  
-     Host their code (and documents) in their own repository.
-     SourceForge.net, Google Code and GitHub.
-     Register at ros.org.
-  
-   Easy to search software.
-  
-     Search across the federation of repositories is possible.
-     ros.org keeps tracks of updates of all repositories and generates index.
-     Documentation and tutorials are also updated automatically.
+The resources for different groups exchanging their codes and knowledge include :
+\begin{itemize}
+  \item ROS.org
+  \item Repositories
+  \item ROS Answers
+  \item Mailing List
+  \item Blog
+\end{itemize}
+
+\subsection{ROS.org}
+ROS.org is the main website for hosting ROS-related software. ROS.org provides documentation and tutorial of how to use ROS. It also offers a list of ROS-related softwares and corresponding documentations. 
+
+\subsection{Repositories}
+
+\begin{figure*}[tbhp]
+  \centering
+  \includegraphics[width=.9\textwidth]{repos}
+  \caption{The geological distribution of ROS repositories.}
+  \label{fig:repos}
+\end{figure*}
+
+ROS code is maintained in a decentralized federation of repositories. The core repository, which holds the minimum funcionality of the system, is \texttt{ros-pkg}. Besides the core repository, there are many other repositories hosted by other entities. Among all repositories, 94 are hosted other institutions and 14 are personal. Figure \ref{fig:repos} shows the geological distribution of all repositories\footnote{Extracted from \url{http://maps.google.com/maps/ms?ie=UTF\&msa=0\&msid=209668390659853657363.00049c608b78bc7779683}}.
+
+ROS not only allows contributers to host their code (and documents) in their own repository, but also accepts different forms of version control. The overhead of maintaining a repository is minimized by the use of community-hosting sites such as SourceForge.net, Google
+Code, and GitHub.
+
+Contributors can register their repositories and softwares in ROS.org, which makes searching across the federation of repositories possible. ROS.org keeps tracks of updates of all repositories and generates index. Documentation and tutorials are also updated automatically.
 
 
-   ROS Answers.
+\subsection{Other Resources}
+ROS Answers (\url{answers.ros.org}) is a Q\&A site for answering ROS-related questions. Researchers can ask and answer questions freely on this site.
 
-\begin{center}
-  \includegraphics[width=\textwidth]{ros_answers}
-\end{center}
-
+ROS community also provide mailing list and user blogs for users to share ROS-related information.
 
 \section{CONCLUSION}
 
