@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{amsmath}
+%
+%
+
+%
+
+%
+
+\begin{document}
+\pagestyle{empty}
+%
+%
+%
+
+\enlargethispage{100cm}
+% Start of code
+% \begin{tikzpicture}[anchor=mid,>=latex',line join=bevel,]
+\begin{tikzpicture}[>=latex',line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\pgfsetcolor{black}
+  % Edge: _object_detection -> _grasp
+  \draw [->] (311.03bp,24.453bp) .. controls (321.25bp,22.616bp) and (331.92bp,20.995bp)  .. (342bp,20bp) .. controls (379.05bp,16.342bp) and (421.29bp,16.324bp)  .. (462.59bp,17.378bp);
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (392bp,29.5bp) node {/object\_detect/pos};
+  % Edge: _object_detection -> _rosout
+  \draw [->] (319.62bp,43.091bp) .. controls (355.88bp,48.512bp) and (402.46bp,57.57bp)  .. (442bp,72bp) .. controls (449.85bp,74.866bp) and (457.93bp,78.725bp)  .. (474.52bp,87.862bp);
+  \draw (392bp,81.5bp) node {/rosout};
+  % Edge: _gscam_publisher -> _image_view
+  \draw [->] (79.659bp,92bp) .. controls (109.5bp,92bp) and (151.22bp,92bp)  .. (197.29bp,92bp);
+  \draw (137bp,101.5bp) node {/gscam/image};
+  % Edge: _gscam_publisher -> _object_detection
+  \draw [->] (69.452bp,79.164bp) .. controls (78.495bp,75.538bp) and (88.554bp,71.817bp)  .. (98bp,69bp) .. controls (128.33bp,59.955bp) and (162.6bp,52.552bp)  .. (201.77bp,45.208bp);
+  \draw (137bp,78.5bp) node {/gscam/image};
+  % Edge: _image_view -> _rosout
+  \draw [->] (319.93bp,94.804bp) .. controls (360.25bp,96.66bp) and (412.4bp,99.06bp)  .. (459.97bp,101.25bp);
+  \draw (392bp,109.5bp) node {/rosout};
+  % Edge: _gscam_publisher -> _rosout
+  \draw [->] (68.331bp,105.37bp) .. controls (77.589bp,109.15bp) and (88.052bp,112.83bp)  .. (98bp,115bp) .. controls (247.42bp,147.59bp) and (291.31bp,149.1bp)  .. (442bp,123bp) .. controls (447.8bp,122bp) and (453.79bp,120.45bp)  .. (469.16bp,115.43bp);
+  \draw (259bp,150.5bp) node {/rosout};
+  % Node: _grasp
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (498bp,19bp) ellipse (35bp and 19bp);
+  \draw (498bp,19bp) node {/grasp};
+\end{scope}
+  % Node: _object_detection
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (259bp,36bp) ellipse (65bp and 19bp);
+  \draw (259bp,36bp) node {/object\_detect};
+\end{scope}
+  % Node: _rosout
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (498bp,103bp) ellipse (38bp and 19bp);
+  \draw (498bp,103bp) node {/rosout};
+\end{scope}
+  % Node: _image_view
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (259bp,92bp) ellipse (61bp and 19bp);
+  \draw (259bp,92bp) node {/image\_view};
+\end{scope}
+  % Node: _gscam_publisher
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (40bp,92bp) ellipse (39bp and 19bp);
+  \draw (40bp,92bp) node {/gscam};
+\end{scope}
+%
+\end{tikzpicture}
+% End of code
+
+%
+\end{document}
+%
+
+
+
