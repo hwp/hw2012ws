@@ -114,14 +114,6 @@ ROS is a fully open platform and distributed under BSD license. It is especially
 \subsection{ROS Computation Graph}
 The ROS runtime ``graph'' is a peer-to-peer network of processes using the ROS communication infrastructure. Figure \ref{fig:framework}is a computation graph of a simple grasping application.
 
-As shown in the graph, the ellipses are the nodes, which performs the calculation. The node are identified by their names, which also indicates their functionality. Node \texttt{/gscam} is the program for getting images from a webcam. Node \texttt{/object\_detect} is for detecting objects from images. Node \texttt{/image\_view} is for viewing an images stream. Node \texttt{/grasp} is the program for the robot to grasp the object. Node \texttt{/rosout} displays the output info of each node.
-
-The nodes are connected via peer-to-peer links, either follow TCP or UDP protocol. The form of the connection can be two types, topic or service. In this example, there are three topics, namely \texttt{/image}, \texttt{/pos} and \texttt{/rosout}. One node can send out topic to more than one node (example is topic \texttt{/image}), and one node can also receive topics from multiple nodes (example is node \texttt{/rosout}). 
-
-The work flow of the sample system can be described as : The webcam, controlled by node \texttt{/gscam}, gets the images and sends to node \texttt{/object\_detect} and node \texttt{/image\_view} via topic \texttt{/image}. The topic \texttt{/image} contains the data of the images taking from the webcam. The images are shown to users using node \texttt{/image\_view}. At the same time, the images are also processed by node \texttt{/object\_detect}. The position of the object is found and send to topic \texttt{/pos}. The position information is later used by node \texttt{/grasp}, and the grasping is performed. During the process, all output info are displayed in the console via topic \texttt{/rosout}.
-
-The detailed communicating mechanisms are discussed as follow.
-
 \begin{figure}[htpb]
   \centering
   \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
@@ -144,22 +136,28 @@ The detailed communicating mechanisms are discussed as follow.
   \label{fig:framework}
 \end{figure}
 
+As shown in Figure \ref{fig:framework}, the ellipses are the nodes, which performs the calculation. The node are identified by their names, which also indicates their functionality. Node \texttt{/gscam} is the program for getting images from a webcam. Node \texttt{/object\_detect} is for detecting objects from images. Node \texttt{/image\_view} is for viewing an images stream. Node \texttt{/grasp} is the program for the robot to grasp the object. Node \texttt{/rosout} displays the output info of each node.
 
+The nodes are connected via peer-to-peer links, either follow TCP or UDP protocol. The form of the connection can be two types, topic or service. In this example, there are three topics, namely \texttt{/image}, \texttt{/pos} and \texttt{/rosout}. One node can send out topic to more than one node (example is topic \texttt{/image}), and one node can also receive topics from multiple nodes (example is node \texttt{/rosout}). 
 
-\subsection{Node and Master}
+The work flow of the sample system can be described as : The webcam, controlled by node \texttt{/gscam}, gets the images and sends to node \texttt{/object\_detect} and node \texttt{/image\_view} via topic \texttt{/image}. The topic \texttt{/image} contains the data of the images taking from the webcam. The images are shown to users using node \texttt{/image\_view}. At the same time, the images are also processed by node \texttt{/object\_detect}. The position of the object is found and send to topic \texttt{/pos}. The position information is later used by node \texttt{/grasp}, and the grasping is performed. During the process, all output info are displayed in the console via topic \texttt{/rosout}.
+
+\texttt{rxgraph} is a visualization tool for displaying the ROS computation graph. Figure \ref{fig:rxgraph} is a screenshot of the tool.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.48\textwidth]{rxgraph}
+  \caption{\texttt{rxgraph} is a visualization tool for displaying the ROS computation graph.}
+  \label{fig:rxgraph}
+\end{figure}
+
+The detailed communicating mechanisms are discussed in topics and services.
+
+\subsection{Node}
 
 Nodes are independent processes that perform computation. Nodes are designed to be modular at a fine-grained scale. Robot control system will usually comprise many nodes.
 
 The use of nodes in ROS provides several benefits to the overall system. There is additional fault tolerance as crashes are isolated to individual nodes. Code complexity is reduced in comparison to monolithic systems. Implementation details are also well hidden as the nodes expose a minimal API to the rest of the graph and alternate implementations, even in other programming languages, can easily be substituted. 
-
-Nodes, which are identified by their names, get to know each other via roscore, aka master. The master works as a name server. All running nodes register their name, address, port and other information at the master. Therefore, the information of other nodes can be acquired by inquisition to the master. Once these nodes have located each other, they communicate with each other peer-to-peer. The structure is shown in Figure \ref{fig:master}.
-
-\begin{figure}[htpb]
-  \centering
-  \includegraphics[width=.4\textwidth]{nodes}
-  \caption{roscore (master) provides the naming and registry service in ROS.}
-  \label{fig:master}
-\end{figure}
 
 \subsection{Message}
 
@@ -167,10 +165,9 @@ Nodes communicate with each other by passing messages. Nodes receive and pass di
 
 A message is simply a data structure, comprising typed fields. Standard primitive types (integer, floating, boolean, string) are supported, as are arrays of primitive types. Messages can include arbitrarily nested structures and arrays, like C structs.
 
-Data structures of messages are specified in \texttt{.msg} files. Figure \ref{fig:message} shows the \texttt{.msg} file of built-in message \texttt{sensor\_msg/Image}. The message specifies data of a image.
+Data structures of messages are specified in \texttt{.msg} files. The following code shows the \texttt{.msg} file of built-in message \texttt{sensor\_msg/Image}. The message specifies data of a image.
 
-\begin{figure}[htpb]
-  \centering
+\vspace{8pt}
 \begin{Verbatim}[frame=single]
 Header header 
   uint32 seq 
@@ -183,9 +180,6 @@ uint8 is_bigendian
 uint32 step 
 uint8[] data
 \end{Verbatim}
-  \caption{Message specification of a image. The message name is \texttt{sensor\_msg/Image}.}
-  \label{fig:message}
-\end{figure}
 
 \subsection{Topic}
 
@@ -201,7 +195,7 @@ A topic can be viewed as a bus that connects nodes, which send out or receives t
   \label{fig:topic}
 \end{figure}
 
-Each topic has a strict type defined by a message type, namely a \texttt{.msg} file. As like nodes, topics are identified by their names and registered at the master. Upon a node subscribing a topic, the MD5 codes of the \texttt{.msg} files are checked for consistency of the message types.
+Each topic has a strict type defined by a message type, namely a \texttt{.msg} file. Upon a node subscribing a topic, the MD5 codes of the \texttt{.msg} files are checked for consistency of the message types.
 
 Example of topics are discussed previously (see Figure \ref{fig:framework}). The topic \texttt{/image} contains stream of \texttt{sensor\_msg/Image} messages, which are data of captured images from the webcam. It has one publisher, \texttt{/gscam}, and two subscribers, \texttt{/object\_detect} and \texttt{/image\_view}. The topic \texttt{/rosout}, on the other hand, is an example shows that one topic can have multiple publishers.
 
@@ -216,21 +210,37 @@ Service is another type of communication between nodes. Its mechanism is a node 
   \label{fig:service}
 \end{figure}
 
-A \texttt{.srv} file defines a service type. It comprises simple two parts : a request message type and a response message type. Figure \ref{fig:srvfile} is an example of a \texttt{.srv} file definition of a service, which adds two input integers (a and b) and returns the sum. The lines above the ``\texttt{---}'' are the definition of the request message type. And below it, is the definition of the response message type. Both parts can be empty (corresponding to void input and void return).
+A \texttt{.srv} file defines a service type. It comprises simple two parts : a request message type and a response message type. The following code is an example of a \texttt{.srv} file definition of a service, which adds two input integers (a and b) and returns the sum. The lines above the ``\texttt{---}'' are the definition of the request message type. And below it, is the definition of the response message type. Both parts can be empty (corresponding to void input and void return).
 
-\begin{figure}[htpb]
-  \centering
+\vspace{8pt}
 \begin{Verbatim}[frame=single]
 int64 a
 int64 b
 ---
 int64 sum
 \end{Verbatim}
-  \caption{A sample \texttt{.srv} file defines the service of adding two integers.}
-  \label{fig:srvfile}
-\end{figure}
 
   Services differ from topics in several aspects. The main difference is that connections of services are bi-directional, while those of topics are uni-directional. Services can be requested with input parameters. On the contrary, topics do not have the input part. Publishers of topics send out messages without knowing the subscribers. Additionally, topics allow multiple nodes communicating at the same time, while services are between two nodes. And, the servers in services only process upon requests. However, the publishers in topics work throughout the runtime (processing may be invoked by clock). Users have the chance to decide which method to use, in order to fit their situation.
+
+\subsection{Master}
+
+Nodes and topics, which are identified by their names, get to know each other via roscore, aka master. The master works as a name server. All running nodes register their name, address, port and published topics at the master. Therefore, the information of other nodes can be acquired by inquisition to the master. Once these nodes have located each other, they communicate with each other peer-to-peer. The structure is shown in Figure \ref{fig:nodes}.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.4\textwidth]{nodes}
+  \caption{roscore (master) provides the naming and registry service in ROS.}
+  \label{fig:nodes}
+\end{figure}
+
+Figure \ref{fig:master} demonstrates the procedure of establishing topic connection between two nodes. % TODO
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.48\textwidth]{master-node-example}
+  \caption{An example procedure of establishing topic connection between two nodes. The master works as a name server.}
+  \label{fig:master}
+\end{figure}
 
 \subsection{File System Hierarchy}
 
