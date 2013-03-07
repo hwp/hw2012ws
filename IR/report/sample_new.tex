@@ -155,11 +155,13 @@ The work flow of the sample system can be described as : The webcam, controlled 
 
 The detailed communicating mechanisms are discussed in topics and services.
 
-\subsection{Node}
+\subsection{Node} 
 
 Nodes are independent processes that perform computation. Nodes are designed to be modular at a fine-grained scale. Robot control system will usually comprise many nodes.
 
-The use of nodes in ROS provides several benefits to the overall system. There is additional fault tolerance as crashes are isolated to individual nodes. Code complexity is reduced in comparison to monolithic systems. Implementation details are also well hidden as the nodes expose a minimal API to the rest of the graph and alternate implementations, even in other programming languages, can easily be substituted. 
+The use of nodes in ROS provides several benefits to the overall system. There is additional fault tolerance as crashes are isolated to individual nodes. Code complexity is reduced in comparison to monolithic systems. Implementation details are also well hidden as the nodes expose a minimal API to the rest of the graph and alternate implementations, even in other programming languages, can easily be substituted.
+
+\texttt{rosnode} is the corresponding command-line tool for dealing with nodes. Its functions include printing information about node, killing a running node, listing active nodes and testing connectivity to node.
 
 \subsection{Message}
 
@@ -183,6 +185,8 @@ uint32 step
 uint8[] data
 \end{Verbatim}
 
+\texttt{rosmsg} is the command-line tool for displaying information about ROS Message types.
+
 \subsection{Topic}
 
 Topic is a mechanism for sending messages from nodes to nodes. It follows a publisher-subscriber design pattern. Publisher is the node which send messages to the topic. Subscribers are the nodes which get called whenever a message is published. The connection is unidirectional.
@@ -200,6 +204,8 @@ A topic can be viewed as a bus that connects nodes, which send out or receives t
 Each topic has a strict type defined by a message type, namely a \texttt{.msg} file. Upon a node subscribing a topic, the MD5 codes of the \texttt{.msg} files are checked for consistency of the message types.
 
 Example of topics are discussed previously (see Figure \ref{fig:framework}). The topic \texttt{/image} contains stream of \texttt{sensor\_msg/Image} messages, which are data of captured images from the webcam. It has one publisher, \texttt{/gscam}, and two subscribers, \texttt{/object\_detect} and \texttt{/image\_view}. The topic \texttt{/rosout}, on the other hand, is an example shows that one topic can have multiple publishers.
+
+The \texttt{rostopic} command-line tool implements the functions of displaying a list of active topics, the publishers and subscribers of a specific topic, the publishing rate of a topic, the bandwidth of a topic, and messages published to a topic. Users can also use \texttt{rostopic} to publish messages to a topic from command line.
 
 \subsection{Service}
 
@@ -222,7 +228,9 @@ int64 b
 int64 sum
 \end{Verbatim}
 
-  Services differ from topics in several aspects. The main difference is that connections of services are bi-directional, while those of topics are uni-directional. Services can be requested with input parameters. On the contrary, topics do not have the input part. Publishers of topics send out messages without knowing the subscribers. Additionally, topics allow multiple nodes communicating at the same time, while services are between two nodes. And, the servers in services only process upon requests. However, the publishers in topics work throughout the runtime (processing may be invoked by clock). Users have the chance to decide which method to use, in order to fit their situation.
+The \texttt{rosservice} command-line tool can display all services and their type, URI, arguments. Users can also call a service directly from the command line. 
+
+Services differ from topics in several aspects. The main difference is that connections of services are bi-directional, while those of topics are uni-directional. Services can be requested with input parameters. On the contrary, topics do not have the input part. Publishers of topics send out messages without knowing the subscribers. Additionally, topics allow multiple nodes communicating at the same time, while services are between two nodes. And, the servers in services only process upon requests. However, the publishers in topics work throughout the runtime (processing may be invoked by clock). Users have the chance to decide which method to use, in order to fit their situation.
 
 \subsection{Master}
 
@@ -352,10 +360,9 @@ ROS community also provide mailing list and user blogs for users to share ROS-re
 
 \section{CONCLUSION}
 
-   ROS defines a standard for the communicate mechanisms and protocols between robot components.
-   ROS provides libraries for various functions.
-   ROS contains utility tools to help development.
-   ROS promotes code sharing and reuse.
+ROS defines a standard for the communicate mechanisms and protocols between robot components. It provides libraries for various functions. It also offers utility tools to help development. ROS promotes code sharing and reuse.
+
+So far, ROS has been widely used and contributed by robotics researchers from all over the world and applied to different kinds of robots. A large number of researchers gained benefit from using ROS.
 
 
 \bibliography{ref}
