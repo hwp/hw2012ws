@@ -233,7 +233,9 @@ Nodes and topics, which are identified by their names, get to know each other vi
   \label{fig:nodes}
 \end{figure}
 
-Figure \ref{fig:master} demonstrates the procedure of establishing topic connection between two nodes. % TODO
+Figure \ref{fig:master} demonstrates the procedure of establishing topic connection between two nodes. The ellipse \emph{hokuyo} in the figure represents the node \texttt{hokuyo\_node}, which runs at host \texttt{foo}. It controls the Hokuyo laser range-finder and gets the scanned data. It publishes the data in \texttt{sensor\_msgs/LaserScan} message type via topic \texttt{scan}. The other ellipse \emph{viewer} represents the node \texttt{rviz}, which displays the visualization of the scanned data.
+
+The topic connection is established in 4 steps, which are showed as 4 groups of arrows. The first step is the publisher (hokuyo) advertising to the master its intent of publishing. The master has a fixed URI, which all nodes are aware of. The publisher sends the topic name(\texttt{scan}), message type(\texttt{sensor\_msgs/LaserScan}) and its own URI(\texttt{foo:1234}) to the master via XML-RPC connection. The second step is the subscriber (viewer) requesting subscription to the topic. Then, the URI of the publisher is returned to the subscriber. The third step is getting the TCP port of the publisher throught XML-RPC communication. Finally, the TCP connection is established between the two nodes. The data messages are transported via the TCP connetion.
 
 \begin{figure}[htpb]
   \centering
