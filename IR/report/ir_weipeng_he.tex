@@ -86,7 +86,7 @@ ROS is designed to solve the challenges encountered when developing large-scale 
 
 ROS is designed to work on multiple hosts and processes that are connected in a peer-to-peer topology. This design avoids the using of central server, which might cause problems when working on computers in a heterogeneous network.
 
-A typical working environment of ROS is shown in Figure \ref{fig:network}. There are several onboard computers connected to high-power offboard computers via wireless bridge. The use of a centeral server at either side (onboard or offboard) may cause communication problems at the bottle-neck of the wireless brigde.
+A typical working environment of ROS is shown in Figure \ref{fig:network}. There are several onboard computers connected to high-power offboard computers via wireless bridge. The use of a central server at either side (onboard or offboard) may cause communication problems at the bottle-neck of the wireless bridge.
 
 \begin{figure}[htpb]
   \centering
@@ -144,7 +144,7 @@ The nodes are connected via peer-to-peer links, either follow TCP or UDP protoco
 
 The work flow of the sample system can be described as : The webcam, controlled by node \texttt{/gscam}, gets the images and sends to node \texttt{/object\_detect} and node \texttt{/image\_view} via topic \texttt{/image}. The topic \texttt{/image} contains the data of the images taking from the webcam. The images are shown to users using node \texttt{/image\_view}. At the same time, the images are also processed by node \texttt{/object\_detect}. The position of the object is found and send to topic \texttt{/pos}. The position information is later used by node \texttt{/grasp}, and the grasping is performed. During the process, all output info are displayed in the console via topic \texttt{/rosout}.
 
-\texttt{rxgraph} is a visualization tool for displaying the ROS computation graph at runtime. Figure \ref{fig:rxgraph} is a screenshot of the tool.
+\texttt{rxgraph} (see Figure \ref{fig:rxgraph}) is a visualization tool for displaying the ROS computation graph at runtime.
 
 \begin{figure}[htpb]
   \centering
@@ -252,7 +252,7 @@ Nodes and topics, which are identified by their names, get to know each other vi
 
 Figure \ref{fig:master} demonstrates the procedure of establishing topic connection between two nodes. The ellipse \emph{hokuyo} in the figure represents the node \texttt{hokuyo\_node}, which runs at host \texttt{foo}. It controls the Hokuyo laser range-finder and gets the scanned data. It publishes the data in \texttt{sensor\_msgs/LaserScan} message type via topic \texttt{scan}. The other ellipse \emph{viewer} represents the node \texttt{rviz}, which displays the visualization of the scanned data.
 
-The topic connection is established in 4 steps, which are showed as 4 groups of arrows. The first step is the publisher (hokuyo) advertising to the master its intent of publishing. The master has a fixed URI, which all nodes are aware of. The publisher sends the topic name(\texttt{scan}), message type(\texttt{sensor\_msgs/LaserScan}) and its own URI(\texttt{foo:1234}) to the master via XML-RPC connection. The second step is the subscriber (viewer) requesting subscription to the topic. Then, the URI of the publisher is returned to the subscriber. The third step is getting the TCP port of the publisher through XML-RPC communication. Finally, the TCP connection is established between the two nodes. The data messages are transported via the TCP connection.
+The topic connection is established in 4 steps, which are showed as 4 groups of arrows. The first step is the publisher (hokuyo) advertising to the master its intent of publishing. The master has a fixed URI, which all nodes are aware of. The publisher sends the topic name (\texttt{scan}), message type (\texttt{sensor\_msgs/LaserScan}) and its own URI (\texttt{foo:1234}) to the master via XML-RPC connection. The second step is the subscriber (viewer) requesting subscription to the topic. Then, the URI of the publisher is returned to the subscriber. The third step is getting the TCP port of the publisher through XML-RPC communication. Finally, the TCP connection is established between the two nodes. The data messages are transported via the TCP connection.
 
 \subsection{File System Hierarchy}
 
@@ -301,7 +301,7 @@ ROS system on disk consists of a hierarchical filesystem. The filesystem concept
     child { node[package] {Package} }
   };
 \end{tikzpicture}
-  \caption{ROS filesystem hierachy.}
+  \caption{ROS filesystem hierarchy.}
   \label{fig:filesystem}
 \end{figure}
 
@@ -322,12 +322,13 @@ The quote below states the ``Free and Open-source'' goal of ROS\cite{cousins_sha
 
 There are two methods applied for making ROS program easy to share. One is that the software architecture of ROS is of high reusability. The other is that ROS provide a powerful environment and resources for sharing.
 
-The architecture of ROS is designed to enforce \emph{symmetry} and \emph{fine granularity} among nodes and packages. The package are all of equal privilige in both development ant runtime environments. There is no node in the runtime computation graph of ROS that is more priviliged than another. At the time that users program their nodes (for their own project), their nodes can be used by others. Furthermore, the packages of ROS are conventionally small. The fine-grained functionality of each package ensures that they can be easily adapted to other programs. These qualities make the ROS software achieve high reusability.
+The architecture of ROS is designed to enforce \emph{symmetry} and \emph{fine granularity} among nodes and packages. The package are all of equal privilege in both development ant runtime environments. There is no node in the runtime computation graph of ROS that is more privileged than another. At the time that users program their nodes (for their own project), their nodes can be used by others. Furthermore, the packages of ROS are conventionally small. The fine-grained functionality of each package ensures that they can be easily adapted to other programs. These qualities make the ROS software achieve high reusability.
 
 The resources for different groups exchanging their codes and knowledge include :
 \begin{itemize}
   \item ROS.org
   \item Repositories
+  \item ROS Build System
   \item ROS Answers
   \item Mailing List
   \item Blog
@@ -338,20 +339,25 @@ ROS.org is the main website for hosting ROS-related software. ROS.org provides d
 
 \subsection{Repositories}
 
-\begin{figure*}[tbhp]
+ROS code is maintained in a decentralized federation of repositories. The core repository, which holds the minimum functionality of the system, is \texttt{ros-pkg}. Besides the core repository, there are many other repositories hosted by other entities. Among all repositories, 94 are hosted other institutions and 14 are personal. Figure \ref{fig:repos} shows the geological distribution of all repositories\footnote{Extracted from \url{http://maps.google.com/maps/ms?ie=UTF\&msa=0\&msid=209668390659853657363.00049c608b78bc7779683}}.
+
+\begin{figure}[tbhp]
   \centering
-  \includegraphics[width=.9\textwidth]{repos}
+  \includegraphics[width=.48\textwidth]{repos}
   \caption{The geological distribution of ROS repositories.}
   \label{fig:repos}
-\end{figure*}
-
-ROS code is maintained in a decentralized federation of repositories. The core repository, which holds the minimum functionality of the system, is \texttt{ros-pkg}. Besides the core repository, there are many other repositories hosted by other entities. Among all repositories, 94 are hosted other institutions and 14 are personal. Figure \ref{fig:repos} shows the geological distribution of all repositories\footnote{Extracted from \url{http://maps.google.com/maps/ms?ie=UTF\&msa=0\&msid=209668390659853657363.00049c608b78bc7779683}}.
+\end{figure}
 
 ROS not only allows contributors to host their code (and documents) in their own repository, but also accepts different forms of version control. The overhead of maintaining a repository is minimized by the use of community-hosting sites such as SourceForge.net, Google
 Code, and GitHub.
 
 Contributors can register their repositories and software in ROS.org, which makes searching across the federation of repositories possible. ROS.org keeps tracks of updates of all repositories and generates index. Documentation and tutorials are also updated automatically.
 
+\subsection{ROS Build System}
+
+With fine-grained ROS packages, a complete application may consists of many packges. Thus, handling the dependency among packages while building the application is problematic. ROS provides a special build system for building ROS applications.
+
+\texttt{rosbuild} is the tool helping users to build their applications. It can properly track the dependency among ROS package tree and gather appropriate build flags.
 
 \subsection{Other Resources}
 ROS Answers (\url{answers.ros.org}) is a Q\&A site for answering ROS-related questions. Researchers can ask and answer questions freely on this site.
