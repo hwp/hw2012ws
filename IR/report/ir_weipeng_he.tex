@@ -303,7 +303,7 @@ ROS system on disk consists of a hierarchical filesystem. The filesystem concept
   \label{fig:filesystem}
 \end{figure}
 
-A stack is a full application suite, comprised of a collection of packages. For example, \texttt{geometry} is a stack holding libraries for geometric and mathematic computing. This stacks contains packages \texttt{tf}, \texttt{tf\_conversions}, \texttt{kdl\_conversions}, \texttt{angles} and \texttt{eigen\_conversions}.
+A stack is a full application suite, comprised of a collection of packages. For example, \texttt{geometry} is a stack holding libraries for geometric and mathematics computing. This stacks contains packages \texttt{tf}, \texttt{tf\_conversions}, \texttt{kdl\_conversions}, \texttt{angles} and \texttt{eigen\_conversions}.
 
 A package is a software that solves a specific task. A package may contains several nodes. For example, the package \texttt{tf} in stack \texttt{geometry} is the package that let users keep track of multiple coordinate frames over time (in Figure \ref{fig:tf}).
   
@@ -353,7 +353,7 @@ Contributors can register their repositories and software in ROS.org, which make
 
 \subsection{ROS Build System}
 
-With fine-grained ROS packages, a complete application may consists of many packges. Thus, handling the dependency among packages while building the application is problematic. ROS provides a special build system for building ROS applications.
+With fine-grained ROS packages, a complete application may consists of many packages. Thus, handling the dependency among packages while building the application is problematic. ROS provides a special build system for building ROS applications.
 
 \texttt{rosbuild} is the tool helping users to build their applications. It can properly track the dependency among ROS package tree and gather appropriate build flags.
 
