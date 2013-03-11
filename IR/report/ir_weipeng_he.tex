@@ -56,7 +56,7 @@ Robot Operating System (ROS) is a project that promotes the code reuse in roboti
 
 ROS was started from 2007, and now it is widely used in research and industry of robotics. Originally, it was under the name Switchyard by the Stanford Artificial Intelligence Laboratory in support of the Stanford AI Robot (STAIR) project. From 2008, its development continues primarily at Willow Garage, with more than twenty institutions collaborating in a federated development model. ROS has been released several times under different distribution names. The latest stable distribution release is ``ROS Groovy Galapagos'' on December 31, 2012\cite{_documentation_2013}.
 
-Although the latest release of ROS is targeted at Ubuntu, it also works on other Linux distributions as well as Mac OS X, Android, and Windows. ROS programs can be developed in multiple programming languages, that are C++, Python, Octave and Lisp. More importantly, ROS supports more than 80 different kinds of robots. The popular robots, that are PR2, Care-O-bot 3, iRobot Create, Aldebaran Nao are all included.
+Although the latest release of ROS is targeted at Ubuntu, it also works on other Linux distributions, Mac OS X, Android, and Windows. ROS programs can be developed in multiple programming languages, that are C++, Python, Octave and Lisp. More importantly, ROS supports more than 80 different kinds of robots. Most of the popular robots, such as PR2, Care-O-bot 3, iRobot Create, Aldebaran Nao are all included.
 
 ROS offers plentiful modules in its repositories. It is a direct benefit for researchers to use the code from ROS rather than write the code by themselves. For example, Figure \ref{fig:tf} shows the coordinate frames in PR2, a personal service robot. The numerous moving components as well as the vision sensors have different coordinate frames. The calculation of transformation between frames is complex but essential for controlling the robot. Although the task is complex, researchers can build their programs directly based on the tf package from ROS, which reduces their workload.
 
@@ -67,7 +67,7 @@ ROS offers plentiful modules in its repositories. It is a direct benefit for res
   \label{fig:tf}
 \end{figure}
 
-Previously, there were other robotics software frameworks used in academia and industry\cite{kramer_development_2007}. Each framework was designed for some special robots or for few special tasks. Among those frameworks, Player/Stage\cite{collett_player_2005} is most similar to ROS. It is also an open-source project, and offers modules for frequently-used robotics applications. Player/Stage fits for simple, non-articulated mobile platforms. ROS, however, is better at dealing with complex mobile manipulation platforms. Furthermore, ROS offers more implementations of robotics-related algorithms.
+Previously, there were other robotics software frameworks used in academia and industry\cite{kramer_development_2007}. Each framework was designed for some special robots or for special tasks. Among those frameworks, Player/Stage\cite{collett_player_2005} is most similar to ROS. It is also an open-source project, and offers modules for frequently-used robotics applications. Player/Stage fits for simple, non-articulated mobile platforms. ROS, however, is better at dealing with complex mobile manipulation platforms. Furthermore, ROS offers more implementations of robotics-related algorithms.
 
 In later sections of this paper, we will introduce the design goals, software structure, the community management of ROS as well as the robots powered by ROS. 
 
@@ -97,29 +97,29 @@ A typical working environment of ROS is shown in Figure \ref{fig:network}. There
 
 \subsection{Tools-based} 
 
-ROS exploits a large number of light tools to manage the building, debugging and monitoring of the programs. ROS systems, which are complex combinations of different components, need these tools to make ROS easy to use for developers.
+ROS exploits a large number of light tools to manage the building, debugging and monitoring of the programs. ROS systems, which are complex combinations of different components, need these tools to make it easy to use for developers.
 
 \subsection{Multi-lingual}
 
-ROS currently supports four programming languages: C++, Python, Octave and Lisp. This adaptation of multiple languages meets the different language preference of programmers. Using the preferred language will large shorten the programming time and make debugging easy.
+ROS currently supports four programming languages: C++, Python, Octave and Lisp. This adaptation of multiple languages meets the different language preference of programmers. Using the preferred language will largly shorten the programming time and make debugging easy.
 
 \subsection{Thin}
 
-While excluding standalone libraries, the core functionality of ROS is considerably thin. Most standalone libraries including those fore drivers are independent to ROS. The design of the framework shows capability to adapt code from a number of other open-source projects. For example, ROS re-uses code for the drivers, navigation system, and simulators from the Player project, vision algorithms from OpenCV, and so on. Ease for unit testing is also an benefit for thin design.
+While excluding standalone libraries, the core functionality of ROS is considerably thin. Most standalone libraries including those for drivers are independent to ROS. The design of the framework shows capability to adapt code from a number of other open-source projects. For example, ROS re-uses code for the drivers, navigation system, and simulators from the Player project, vision algorithms from OpenCV, and so on. Ease for unit testing is also a benefit for thin design.
 
 \subsection{Free and Open-Source}
 
-ROS is a fully open platform and distributed under BSD license. It is especially important for researchers in robotics to collaborate, as the hardware and functions are highly complex. ROS offers the platform for researchers to share their implementations of robotics applications.
+ROS is a fully open platform and distributed under BSD license. It is especially important for researchers in robotics to collaborate, as the hardware and functions are highly complex. ROS offers the platform for researchers to share their robotics applications.
 
 \section{SOFTWARE STRUCTURE}
 
 \subsection{ROS Computation Graph}
-The ROS runtime ``graph'' is a peer-to-peer network of processes using the ROS communication infrastructure. Figure \ref{fig:framework}is a computation graph of a simple grasping application.
+The ROS runtime ``graph'' is a peer-to-peer network of processes using the ROS communication infrastructure. Figure \ref{fig:framework} is a computation graph of a grasping application.
 
 \begin{figure}[htpb]
   \centering
   \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
-                     thick,main node/.style={ellipse,draw,font=\ttfamily\small}]
+                     thick,main node/.style={ellipse,draw,font=\ttfamily\footnotesize}]
 
   \node[main node] (1) {/gscam};
   \node[main node] (2) [below left of=1] {/object\_detect};
@@ -127,7 +127,7 @@ The ROS runtime ``graph'' is a peer-to-peer network of processes using the ROS c
   \node[main node] (4) [below of=3] {/rosout};
   \node[main node] (5) [below of=2] {/grasp};
 
-  \path[every node/.style={font=\ttfamily\small}]
+  \path[every node/.style={font=\ttfamily\footnotesize}]
    (1) edge node {/image} (2)
        edge node {/image} (3)
    (2) edge node {/rosout} (4)
@@ -138,9 +138,9 @@ The ROS runtime ``graph'' is a peer-to-peer network of processes using the ROS c
   \label{fig:framework}
 \end{figure}
 
-As shown in Figure \ref{fig:framework}, the ellipses are the nodes, which performs the calculation. The node are identified by their names, which also indicates their functionality. Node \texttt{/gscam} is the program for getting images from a webcam. Node \texttt{/object\_detect} is for detecting objects from images. Node \texttt{/image\_view} is for viewing an images stream. Node \texttt{/grasp} is the program for the robot to grasp the object. Node \texttt{/rosout} displays the output info of each node.
+As shown in Figure \ref{fig:framework}, the ellipses are the nodes, which performs the calculation. The node are identified by their names, which also indicates their functionality. Node \texttt{/gscam} is the program for getting images from a webcam. Node \texttt{/object\_detect} is for detecting objects from images. Node \texttt{/image\_view} is for viewing an images stream. Node \texttt{/grasp} controls the robot to grasp the object. Node \texttt{/rosout} displays the output info of each node.
 
-The nodes are connected via peer-to-peer links, either follow TCP or UDP protocol. The form of the connection can be two types, topic or service. In this example, there are three topics, namely \texttt{/image}, \texttt{/pos} and \texttt{/rosout}. One node can send out topic to more than one node (example is topic \texttt{/image}), and one node can also receive topics from multiple nodes (example is node \texttt{/rosout}). 
+The nodes are connected via peer-to-peer links, either under TCP or UDP protocol. The form of the connection can be two types, topic or service. In this example, there are three topics, namely \texttt{/image}, \texttt{/pos} and \texttt{/rosout}. One node can send out topic to more than one node (example is topic \texttt{/image}), and one node can also receive topics from multiple nodes (example is node \texttt{/rosout}). 
 
 The work flow of the sample system can be described as : The webcam, controlled by node \texttt{/gscam}, gets the images and sends to node \texttt{/object\_detect} and node \texttt{/image\_view} via topic \texttt{/image}. The topic \texttt{/image} contains the data of the images taking from the webcam. The images are shown to users using node \texttt{/image\_view}. At the same time, the images are also processed by node \texttt{/object\_detect}. The position of the object is found and send to topic \texttt{/pos}. The position information is later used by node \texttt{/grasp}, and the grasping is performed. During the process, all output info are displayed in the console via topic \texttt{/rosout}.
 
@@ -152,8 +152,6 @@ The work flow of the sample system can be described as : The webcam, controlled 
   \caption{\texttt{rxgraph} is a visualization tool for displaying the ROS computation graph.}
   \label{fig:rxgraph}
 \end{figure}
-
-The detailed communicating mechanisms are discussed in topics and services.
 
 \subsection{Node} 
 
@@ -167,7 +165,7 @@ The use of nodes in ROS provides several benefits to the overall system. There i
 
 Nodes communicate with each other by passing messages. Nodes receive and pass different types of data, such as a 2-D position, an image or a string message. A message work as a protocol which specify how the structure of the transmitted data are.
 
-A message is simply a data structure, comprising typed fields. Standard primitive types (integer, floating, boolean, string) are supported, as are arrays of primitive types. Messages can include arbitrarily nested structures and arrays, like C structs.
+A message is simply a data structure, comprising typed fields. Standard primitive types (integer, floating, boolean, string) are supported, as well as arrays of primitive types. Messages can include arbitrarily nested structures and arrays, like C structs.
 
 Data structures of messages are specified in \texttt{.msg} files. The following code shows the \texttt{.msg} file of built-in message \texttt{sensor\_msg/Image}. The message specifies data of a image.
 
@@ -218,7 +216,7 @@ Service is another type of communication between nodes. Its mechanism is a node 
   \label{fig:service}
 \end{figure}
 
-A \texttt{.srv} file defines a service type. It comprises simple two parts : a request message type and a response message type. The following code is an example of a \texttt{.srv} file definition of a service, which adds two input integers (a and b) and returns the sum. The lines above the ``\texttt{---}'' are the definition of the request message type. And below it, is the definition of the response message type. Both parts can be empty (corresponding to void input and void return).
+A \texttt{.srv} file defines a service type. It comprises simply two parts : a request message type and a response message type. The following code is an example of a \texttt{.srv} file definition of a service, which adds two input integers (a and b) and returns the sum. The lines above the ``\texttt{---}'' are the definition of the request message type. And below it, is the definition of the response message type. Both parts can be empty (corresponding to void input and void return).
 
 \vspace{8pt}
 \begin{Verbatim}[frame=single]
