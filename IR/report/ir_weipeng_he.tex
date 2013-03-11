@@ -48,7 +48,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{INTRODUCTION}
+\section{Introduction}
 
 Software system for robots is difficult to develop because of the diversity of hardware and fast growing of its scale. Different research groups write their software for various types of robots, hardware and drivers. The software architectures they chose also differ. All these facts make the codes in robotics hard to reuse. Because of low reusability, researchers, in some cases, need to write the codes from scratch. Furthermore, the low reusability makes it hard to reproduce the experimental results from different groups.
 
@@ -69,9 +69,9 @@ ROS offers plentiful modules in its repositories. It is a direct benefit for res
 
 Previously, there were other robotics software frameworks used in academia and industry\cite{kramer_development_2007}. Each framework was designed for some special robots or for few special tasks. Among those frameworks, Player/Stage\cite{collett_player_2005} is most similar to ROS. It is also an open-source project, and offers modules for frequently-used robotics applications. Player/Stage fits for simple, non-articulated mobile platforms. ROS, however, is better at dealing with complex mobile manipulation platforms. Furthermore, ROS offers more implementations of robotics-related algorithms.
 
-In later sections of this paper, we will introduce the design goals, software structure and the community management of ROS. 
+In later sections of this paper, we will introduce the design goals, software structure, the community management of ROS as well as the robots powered by ROS. 
 
-\section{DESIGN GOALS}
+\section{Design Goals}
 
 ROS is designed to solve the challenges encountered when developing large-scale service robots\cite{quigley_ros:_2009}. Its design goals are listed as follow:
 \begin{itemize}
@@ -313,7 +313,7 @@ A node, as introduced previously, is an executable in the filesystem. At runtime
 
 Messages (types) and services (types), which are defined by \texttt{.msg} and \texttt{.srv} files, are the specification of interfaces.
 
-\section{COMMUNITY MANAGEMENT}
+\section{Community Management}
 
 The quote below states the ``Free and Open-source'' goal of ROS\cite{cousins_sharing_2010} :
 \begin{quote}
@@ -364,12 +364,33 @@ ROS Answers (\url{answers.ros.org}) is a Q\&A site for answering ROS-related que
 
 ROS community also provide mailing list and user blogs for users to share ROS-related information.
 
-\section{CONCLUSION}
+\section{Robots Powered by ROS}
+
+Research groups around the world are using ROS to power their robots. These robots are the examples that make use of the underlying capability of ROS. They also show how people replicate and extend other's work using ROS. PR2 robot from Willow Garage, Nao robot from Aldebaran Robotics and Care-O-bot from Fraunhofer IPA are some of the popular robots powered by ROS.
+
+Personal Robot 2 (PR2) (see Figure \ref{fig:pr2}) is designed by Willow Garage to be a personal service robot for research and innovation. The open-source robot system is developed together with ROS from the ground up. ROS software enable PR2 to fetch a beer, play pool and open doors. 
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.30\textwidth]{share-003}
+  \caption{Willow Garage's PR2 uses ROS to serve drinks, play pool and open doors. (from \cite{cousins_sharing_2010})}
+  \label{fig:pr2}
+\end{figure}
+
+The Nao robot (see Figure \ref{fig:nao}) from Aldebaran Robotics is a commercially available, 60cm tall, humanoid robot targeted at research labs and classrooms. At first, researcher from Brown University's RLAB released its drivers for ROS. Later, researchers at the University of Freiburg's Humanoid Robot Lab used Brown's Nao driver to develop new capabilities, including torso odometry and joystick-based tele-operation. This extension set an example of building on each others' work to achieve more than they would have alone.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.30\textwidth]{share-002}
+  \caption{Aldebaran Robotics’ interactive Nao robot hopes is targeted at research labs and classrooms. (from \cite{cousins_sharing_2010})}
+  \label{fig:nao}
+\end{figure}
+
+\section{Conclusion}
 
 ROS defines a standard for the communicate mechanisms and protocols between robot components. It provides libraries for various functions. It also offers utility tools to help development. ROS promotes code sharing and reuse.
 
 So far, ROS has been widely used and contributed by robotics researchers from all over the world and applied to different kinds of robots. A large number of researchers gained benefit from using ROS.
-
 
 \bibliography{ref}
 \bibliographystyle{plain}  
